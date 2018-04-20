@@ -1,0 +1,14 @@
+{
+  "title": "C'est pas ma guerre !",
+  "description": "En ville, il fais la loi. Ici, ce n'est pas lui. Alors il fais pas chier. Il fais pas chier sinon on lui ferai une guerre comme il en a jamais vue.",
+  "dialog": [
+    {
+      "name": "Sergent-chef Chaudard",
+      "text": "Que vois-je ? Un deserteur ?"
+    },
+    {
+      "name": "Sergent-chef Chaudard",
+      "text": "Honte sur vous et sur votre patrie !"
+    }
+  ]
+}
