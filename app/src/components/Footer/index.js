@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => (
 
   <footer id="footer">
-    <div className="navbar is-fixed-bottom is-dark">
+    <div className="footer-bar navbar is-dark">
       <div id="copy" className="navbar-start">
         <span className="navbar-item">DESERTER&copy; - 2018 - All Rights Reserved</span>
       </div>
