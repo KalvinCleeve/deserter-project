@@ -43,7 +43,10 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "bulma": "^0.7.1",
+<<<<<<< HEAD
     "glamorous": "^4.12.4",
+=======
+>>>>>>> e951c16195bb16035e251c7d58db0e784edb15d7
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
