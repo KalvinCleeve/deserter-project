@@ -34,7 +34,7 @@ const Header = () => (
           </span>
           <span>Se connecter</span>
         </Link>
-        <Link className="navbar-item" to="/Game">
+        <Link className="navbar-item" to="/game">
           <span className="icon is-large">
             <i className="fas fa-play-circle" aria-hidden="true" />
           </span>
