@@ -12,12 +12,12 @@ import React from 'react';
  * Code
  */
 
-const 404 = () => (
+const Error404 = () => (
   <div>DEMI TOUR COLONNEL - CECI EST UN CUL-DE-SAC!</div>
-)
+);
 
 /**
  * Export
  */
 
-export default 404;
+export default Error404;
