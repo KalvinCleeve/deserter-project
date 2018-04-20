@@ -12,7 +12,8 @@
     "lint:fix": "eslint --fix .",
     "test": "mocha tests/.setup.js tests/**/*.test.js",
     "test:watch": "mocha --watch tests/.setup.js tests/**/*.test.js",
-    "test:one": "mocha --watch tests/.setup.js $1"
+    "test:one": "mocha --watch tests/.setup.js $1",
+    "start:node": "node server/index.js"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
@@ -55,8 +56,6 @@
     "react-router-dom": "^4.2.2",
     "react-transition-group": "^2.3.1",
     "redux": "^3.7.2"
-  },
-  "scripts": {
-    "start:node": "node server/index.js"
   }
+
 }
