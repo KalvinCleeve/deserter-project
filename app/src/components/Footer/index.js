@@ -16,9 +16,9 @@ const Footer = () => (
 
   <footer>
     <ul>
-      <li>footer 1</li>
-      <li>footer 2</li>
-      <li>footer 3</li>
+      <li>DESERTER&copy; - 2018 - All Rights Reserved</li>
+      <li>CGU</li>
+      <li>Contact</li>
     </ul>
   </footer>
 );
