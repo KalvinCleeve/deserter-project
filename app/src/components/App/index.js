@@ -9,7 +9,7 @@ import React from 'react';
  */
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
-import Game from 'src/components/Game';
+import Game from 'src/containers/Game';
 
 /*
  * Code

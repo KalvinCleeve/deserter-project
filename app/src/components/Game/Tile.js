@@ -4,6 +4,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 /**
  * Local import
  */
@@ -11,13 +12,17 @@ import classNames from 'classnames';
 /**
  * Code
  */
-const Tile = ({ element, hero, obstacle }) => (
+const Tile = ({ element, hero, id }) => (
   <div>
-    <div className={classNames('tile', element, { hero })} />
+    <div id={id} className={classNames('tile', element, { hero })} />
   </div>
 );
 
-
+Tile.propTypes = {
+  element: PropTypes.string.isRequired,
+  hero: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
+};
 /**
  * Export
  */
