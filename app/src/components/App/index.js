@@ -7,17 +7,18 @@ import React from 'react';
 /*
  * Local import
  */
-import Example from 'src/containers/Example';
+import Header from 'src/components/Header';
+import Footer from 'src/components/Footer';
+import Game from 'src/components/Game';
 
 /*
  * Code
  */
 const App = () => (
   <div>
-    <h1 className="title">
-        Hello World
-    </h1>
-    <Example />
+    <Header />
+    <Game />
+    <Footer />
   </div>
 );
 
