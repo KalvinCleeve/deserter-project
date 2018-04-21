@@ -3,7 +3,10 @@ import { level1 } from 'src/components/Game/data';
  * Initial State
  */
 const initialState = {
-  positionHero: '2-1',
+  heros: {
+    direction: 'down',
+    positionHeros: '2-1',
+  },
   level1,
 };
 
@@ -27,55 +30,64 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case MOVE_RIGHT: {
-      const position = state.positionHero.split('-');
+      // Récupération de la valeur position du heros et de la case suivante
+      const position = state.heros.positionHeros.split('-');
       position[1] = Number(position[1]) + 1;
+      // Modification de la direction du heros
+      state.heros.direction = 'right';
+      // Si case est égale a obstacle, le heros n'avance pas
       if ((state.level1[position[0]][position[1]].obstacle)) {
         return {
           ...state,
         };
+        // Sinon il avance
       }
+      state.heros.positionHeros = `${position[0]}-${position[1]}`;
       return {
         ...state,
-        positionHero: `${position[0]}-${position[1]}`,
       }; }
 
     case MOVE_LEFT: {
-      const position = state.positionHero.split('-');
+      const position = state.heros.positionHeros.split('-');
       position[1] = Number(position[1]) - 1;
+      state.heros.direction = 'left';
       if ((state.level1[position[0]][position[1]].obstacle)) {
         return {
           ...state,
         };
       }
+      state.heros.positionHeros = `${position[0]}-${position[1]}`;
       return {
         ...state,
-        positionHero: `${position[0]}-${position[1]}`,
       }; }
 
     case MOVE_UP: {
-      const position = state.positionHero.split('-');
+      const position = state.heros.positionHeros.split('-');
       position[0] = Number(position[0]) - 1;
+      state.heros.direction = 'up';
       if ((state.level1[position[0]][position[1]].obstacle)) {
         return {
           ...state,
         };
       }
+      state.heros.positionHeros = `${position[0]}-${position[1]}`;
       return {
         ...state,
-        positionHero: `${position[0]}-${position[1]}`,
-      }; }
+      };
+    }
 
     case MOVE_DOWN: {
-      const position = state.positionHero.split('-');
+      const position = state.heros.positionHeros.split('-');
       position[0] = Number(position[0]) + 1;
+      state.heros.direction = 'down';
       if ((state.level1[position[0]][position[1]].obstacle)) {
         return {
           ...state,
         };
       }
+      state.heros.positionHeros = `${position[0]}-${position[1]}`;
       return {
         ...state,
-        positionHero: `${position[0]}-${position[1]}`,
       }; }
 
     default:

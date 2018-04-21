@@ -47,6 +47,41 @@
 
 .hero{
   position: relative;
-  background-color: yellow;
-  margin-top: auto;
 }
+
+  &.right{
+  background-color: red;
+
+}
+    &.right:after{
+      content: "right";
+      color: blue;
+      margin: auto;
+    }
+
+  &.left{
+  background-color: orange;
+}
+    &.left:after{
+      content: "left";
+      color: green;
+      margin: auto;
+    }
+
+  &.up{
+  background-color: black;
+}
+    &.up:after{
+      content: "up";
+      color: white;
+      margin: auto;
+    }
+
+  &.down{
+  background-color: white;
+}
+    &.down:after{
+      content: "down";
+      color: black;
+      margin: auto;
+    }

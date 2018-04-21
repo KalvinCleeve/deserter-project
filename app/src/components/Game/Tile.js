@@ -12,9 +12,14 @@ import PropTypes from 'prop-types';
 /**
  * Code
  */
-const Tile = ({ element, hero, id }) => (
+const Tile = ({
+  element,
+  hero,
+  id,
+  direction,
+}) => (
   <div>
-    <div id={id} className={classNames('tile', element, { hero })} />
+    <div id={id} className={classNames('tile', element, direction, { hero })} />
   </div>
 );
 
@@ -22,6 +27,7 @@ Tile.propTypes = {
   element: PropTypes.string.isRequired,
   hero: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
+  // direction: PropTypes.string.isRequired,
 };
 /**
  * Export

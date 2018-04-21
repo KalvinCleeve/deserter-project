@@ -18,7 +18,8 @@ import { moveRight, moveLeft, moveUp, moveDown } from 'src/store/reducer';
  */
 const mapStateToProps = state => ({
   level1: state.level1,
-  positionHero: state.positionHero,
+  positionHero: state.heros.positionHeros,
+  direction: state.heros.direction,
 });
 
 

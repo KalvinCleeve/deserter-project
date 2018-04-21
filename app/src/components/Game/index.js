@@ -19,6 +19,8 @@ export default class Game extends React.Component {
     moveLeft: PropTypes.func.isRequired,
     moveUp: PropTypes.func.isRequired,
     moveDown: PropTypes.func.isRequired,
+    direction: PropTypes.string.isRequired,
+    positionHero: PropTypes.string.isRequired,
   };
 
   componentDidMount = () => {
@@ -50,11 +52,11 @@ export default class Game extends React.Component {
           line.map((tile, index) => (
             <Tile
               element={tile.element}
-              hero={tile.hero}
               obstacle={tile.obstacle}
               id={`${lineIndex}-${index}`}
               key={`${lineIndex}-${index}`}
-              hero={this.props.positionHero===lineIndex+"-"+index}
+              hero={this.props.positionHero === `${lineIndex}-${index}`}
+              direction={this.props.positionHero === `${lineIndex}-${index}` && this.props.direction}
             />
             ))))}
       </div>
