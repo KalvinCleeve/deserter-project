@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-
 /**
  * Local import
  */
@@ -13,7 +12,9 @@ import React from 'react';
  */
 
 const Error404 = () => (
-  <div>DEMI TOUR COLONNEL - CECI EST UN CUL-DE-SAC!</div>
+  <div>
+    DEMI TOUR COLONNEL - CECI EST UN CUL-DE-SAC!
+  </div>
 );
 
 /**
