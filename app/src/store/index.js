@@ -11,7 +11,7 @@ import movement from 'src/store/movement';
 import map from 'src/store/map';
 
 // Middleware
-import exampleMiddleware from './exampleMiddleware';
+import testMovement from './testMovement';
 
 /*
  * Code
@@ -23,7 +23,7 @@ if (window.devToolsExtension) {
 }
 
 // Middleware vers Enhancers
-const exampleEnhancer = applyMiddleware(exampleMiddleware);
+const exampleEnhancer = applyMiddleware(testMovement);
 const enhancers = compose(exampleEnhancer, ...devTools);
 const rootReducer = combineReducers({ movement, map });
 

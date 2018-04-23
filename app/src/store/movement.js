@@ -22,6 +22,7 @@ const MOVE_DOWN = 'MOVE_DOWN';
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case MOVE_RIGHT: {
+      // console.log(action);
       // Récupération de la valeur position du heros et de la case suivante
       const position = state.heros.positionHeros.split('-');
       position[1] = Number(position[1]) + 1;
