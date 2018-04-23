@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 /**
@@ -19,10 +18,10 @@ const Header = () => (
 
     <nav className="navbar is-dark" aria-label="main navigation">
       <div className="navbar-brand">
-        <Link exact id="title-home" className="navbar-item" to="/">
+        <Link id="title-home" className="navbar-item" to="/">
         Deserter
         </Link>
-        <Link exact className="navbar-item" to="/">
+        <Link className="navbar-item" to="/">
           <span className="icon is-large">
             <i className="fas fa-home" aria-hidden="true" />
           </span>

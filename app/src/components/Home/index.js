@@ -13,8 +13,11 @@ import PropTypes from 'prop-types';
  * Code
  */
 const Home = () => (
-  <div>
-    <h1>Home</h1>
+  <div id="home">
+    <div id="titleHome">
+      <h1 id="mainTitle" className="animated bounceInDown">DESERTER</h1>
+      <h2 >The Game</h2>
+    </div>
   </div>
 );
 
