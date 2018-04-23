@@ -11,7 +11,7 @@ ou bien d'autre qui tente de l'aider à retrouver son chez-soi.
 ## Lancer le visuel sur localhost
 
 Lancer la BDD --> `mongod` ( ou en cas d'erreur `sudo killall mongod` ou `sudo mongod`)
-pour lancer le serveur --> `yarn start:node`
-pour lancer la vue --> `yarn start:brunch`
+pour lancer le serveur --> `node server/index.js`
+pour lancer la vue --> `yarn start`
 
 Et ensuite localhost:3000 dans le navigateur
