@@ -24,7 +24,7 @@ export default class Game extends React.Component {
   };
 
   componentDidMount = () => {
-    const move = addEventListener("keydown", this.handleKeyPress);
+    const move = document.addEventListener('keydown', this.handleKeyPress);
   }
 
   handleKeyPress = (event) => {
