@@ -1,4 +1,3 @@
-import { level1 } from 'src/components/Game/data';
 /**
  * Initial State
  */
@@ -7,13 +6,11 @@ const initialState = {
     direction: 'down',
     positionHeros: '2-1',
   },
-  level1,
 };
 
 /**
  * Types
  */
-const DO_SOMETHING = 'DO_SOMETHING';
 const MOVE_RIGHT = 'MOVE_RIGHT';
 const MOVE_LEFT = 'MOVE_LEFT';
 const MOVE_UP = 'MOVE_TOP';
@@ -24,76 +21,84 @@ const MOVE_DOWN = 'MOVE_DOWN';
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case DO_SOMETHING:
-      return {
-        ...state,
-      };
-
     case MOVE_RIGHT: {
       // Récupération de la valeur position du heros et de la case suivante
       const position = state.heros.positionHeros.split('-');
       position[1] = Number(position[1]) + 1;
       // Modification de la direction du heros
-      state.heros.direction = 'right';
       // Si case est égale a obstacle, le heros n'avance pas
-      if ((state.level1[position[0]][position[1]].obstacle)) {
-        return {
-          ...state,
-        };
-        // Sinon il avance
+      if (action.map[position[0]][position[1]].obstacle) {
+        return Object.assign({}, state, {
+          heros: {
+            ...state.heros,
+            direction: 'right',
+          },
+        });
       }
+      // Sinon il avance
       return Object.assign({}, state, {
         heros: {
           ...state.heros,
           positionHeros: `${position[0]}-${position[1]}`,
+          direction: 'right',
         },
       }); }
 
     case MOVE_LEFT: {
       const position = state.heros.positionHeros.split('-');
       position[1] = Number(position[1]) - 1;
-      state.heros.direction = 'left';
-      if ((state.level1[position[0]][position[1]].obstacle)) {
-        return {
-          ...state,
-        };
+      if (action.map[position[0]][position[1]].obstacle) {
+        return Object.assign({}, state, {
+          heros: {
+            ...state.heros,
+            direction: 'left',
+          },
+        });
       }
       return Object.assign({}, state, {
         heros: {
           ...state.heros,
           positionHeros: `${position[0]}-${position[1]}`,
+          direction: 'left',
         },
       }); }
 
     case MOVE_UP: {
       const position = state.heros.positionHeros.split('-');
       position[0] = Number(position[0]) - 1;
-      state.heros.direction = 'up';
-      if ((state.level1[position[0]][position[1]].obstacle)) {
-        return {
-          ...state,
-        };
+      if (action.map[position[0]][position[1]].obstacle) {
+        return Object.assign({}, state, {
+          heros: {
+            ...state.heros,
+            direction: 'up',
+          },
+        });
       }
+      // Sinon il avance
       return Object.assign({}, state, {
         heros: {
           ...state.heros,
           positionHeros: `${position[0]}-${position[1]}`,
+          direction: 'up',
         },
       }); }
 
     case MOVE_DOWN: {
       const position = state.heros.positionHeros.split('-');
       position[0] = Number(position[0]) + 1;
-      state.heros.direction = 'down';
-      if ((state.level1[position[0]][position[1]].obstacle)) {
-        return {
-          ...state,
-        };
+      if (action.map[position[0]][position[1]].obstacle) {
+        return Object.assign({}, state, {
+          heros: {
+            ...state.heros,
+            direction: 'down',
+          },
+        });
       }
       return Object.assign({}, state, {
         heros: {
           ...state.heros,
           positionHeros: `${position[0]}-${position[1]}`,
+          direction: 'down',
         },
       }); }
 
@@ -105,24 +110,25 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
-export const doSomething = () => ({
-  type: DO_SOMETHING,
-});
 
-export const moveRight = () => ({
+export const moveRight = map => ({
   type: MOVE_RIGHT,
+  map,
 });
 
-export const moveLeft = () => ({
+export const moveLeft = map => ({
   type: MOVE_LEFT,
+  map,
 });
 
-export const moveUp = () => ({
+export const moveUp = map => ({
   type: MOVE_UP,
+  map,
 });
 
-export const moveDown = () => ({
+export const moveDown = map => ({
   type: MOVE_DOWN,
+  map,
 });
 
 /**

@@ -1,13 +1,14 @@
 /*
  * Npm import
  */
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 
 /*
  * Local import
  */
 // Reducer
-import reducer from 'src/store/reducer';
+import movement from 'src/store/movement';
+import map from 'src/store/map';
 
 // Middleware
 import exampleMiddleware from './exampleMiddleware';
@@ -24,9 +25,10 @@ if (window.devToolsExtension) {
 // Middleware vers Enhancers
 const exampleEnhancer = applyMiddleware(exampleMiddleware);
 const enhancers = compose(exampleEnhancer, ...devTools);
+const rootReducer = combineReducers({ movement, map });
 
 // createStore
-const store = createStore(reducer, enhancers);
+const store = createStore(rootReducer, enhancers);
 
 /*
  * Export

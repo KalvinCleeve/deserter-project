@@ -8,18 +8,17 @@ import { bindActionCreators } from 'redux';
  * Local import
  */
 import Game from 'src/components/Game';
-import { moveRight, moveLeft, moveUp, moveDown } from 'src/store/reducer';
+import { moveRight, moveLeft, moveUp, moveDown } from 'src/store/movement';
 
 // Action Creators
-
 
 /**
  * Code
  */
 const mapStateToProps = state => ({
-  level1: state.level1,
-  positionHero: state.heros.positionHeros,
-  direction: state.heros.direction,
+  level1: state.map.level1,
+  positionHero: state.movement.heros.positionHeros,
+  direction: state.movement.heros.direction,
 });
 
 

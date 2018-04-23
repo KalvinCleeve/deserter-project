@@ -24,22 +24,22 @@ export default class Game extends React.Component {
   };
 
   componentDidMount = () => {
-    const move = addEventListener("keydown", this.handleKeyPress);
+    const move = document.addEventListener('keydown', this.handleKeyPress);
   }
 
   handleKeyPress = (event) => {
     switch (event.key) {
       case 'ArrowRight':
-        this.props.moveRight();
+        this.props.moveRight(this.props.level1);
         break;
       case 'ArrowLeft':
-        this.props.moveLeft();
+        this.props.moveLeft(this.props.level1);
         break;
       case 'ArrowUp':
-        this.props.moveUp();
+        this.props.moveUp(this.props.level1);
         break;
       case 'ArrowDown':
-        this.props.moveDown();
+        this.props.moveDown(this.props.level1);
         break;
       default:
     }
