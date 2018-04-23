@@ -38,5 +38,13 @@ MongoClient.connect(url, (err, db) => {
 });
 
 // le server est lancé sur le port localhost:3000
-const server = http.createServer();
-server.listen(3000);
+app.get('/', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
+  res.send('Vous êtes à l\'accueil');
+});
+
+app.get('/testa', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
+  res.send('Vous êtes en test');
+});
+app.listen(3000);

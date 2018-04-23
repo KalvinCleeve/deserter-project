@@ -1,7 +1,7 @@
 /*
  * Import
  */
-// import axios from 'axios';
+import axios from 'axios';
 import { moveRight, moveLeft, moveUp, moveDown } from 'src/store/movement';
 /*
  * Code
@@ -18,11 +18,18 @@ export default store => next => (action) => {
   // Code
   switch (action.type) {
     case TEST_MOVE_RIGHT: {
+      axios
+        .get('http://localhost:3000/')
+        .then(result => console.log(result.data));
+
       store.dispatch(moveRight(store.getState().map.level1));
       break;
     }
     case TEST_MOVE_LEFT: {
       store.dispatch(moveLeft(store.getState().map.level1));
+      axios
+        .get('http://localhost:3000/testa')
+        .then(result => console.log(result.data));
       break;
     }
     case TEST_MOVE_UP: {
