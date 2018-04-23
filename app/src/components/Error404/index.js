@@ -13,7 +13,7 @@ import React from 'react';
 
 const Error404 = () => (
   <div>
-    DEMI TOUR COLONNEL - CECI EST UN CUL-DE-SAC!
+    ERROR 404 - DEMI TOUR COLONNEL - CECI EST UN CUL-DE-SAC!
   </div>
 );
 
