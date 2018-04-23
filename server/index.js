@@ -1,34 +1,37 @@
-// Lance http de la biliothéque node.js qui créer le serveur web
-const http = require('http');
-// Pour lié la page html
-const fs = require('fs');
+/*
+* Require
+*/
+const express = require('express');
+const { Server } = require('http');
 const { join } = require('path');
-
-// BDD
 const { MongoClient } = require('mongodb');
+
+/*
+* Consts
+*/
+const app = express();
+const server = Server(app);
+
+/*
+* Path
+*/
 const url = 'mongodb://localhost:27017/deserter';
-
-// Path
 const indexPath = join(__dirname, '..', '/public/index.html');
+const assetsPath = join(__dirname, '..', 'public');
 
-// Içi on lance le serveur web créer au dessus.
-// req correspond aux infos que le visiteur à demandé ( nom de la page, formulaire remplis ect...)
-// res correspond à l'object que l'on doit remplir pour transmettre un retour au visiteur.
-// Généralement res contient le code HTML à renvoyé
-const server = http.createServer();
-
-server.on('request', (request, response) => {
-  fs.readFile(indexPath, (error, data) => {
-    if (error) {
-      response.writeHead(404);
-      response.end('Ce fichier n\'existe pas');
-    }
-    else {
-      response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-      response.end(data);
-    }
-  });
+/*
+* Express
+*/
+// Static files
+app.use(express.static(assetsPath, { index: false }));
+// Route
+app.get('/', (req, res) => {
+  res.sendFile(indexPath);
 });
+
+/*
+* BDD
+*/
 
 // Connexion à la BDD
 MongoClient.connect(url, (err, db) => {
