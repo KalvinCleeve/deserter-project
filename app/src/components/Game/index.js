@@ -31,6 +31,7 @@ export default class Game extends React.Component {
   };
 
   handleKeyPress = (event) => {
+    event.preventDefault();
     switch (event.key) {
       case 'ArrowRight':
         this.props.testMoveRight();
