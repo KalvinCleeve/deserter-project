@@ -19,10 +19,10 @@ const Header = () => (
 
     <nav className="navbar is-dark" aria-label="main navigation">
       <div className="navbar-brand">
-        <Link id="title-home" className="navbar-item" to="/home">
+        <Link exact id="title-home" className="navbar-item" to="/">
         Deserter
         </Link>
-        <Link className="navbar-item" to="/home">
+        <Link exact className="navbar-item" to="/">
           <span className="icon is-large">
             <i className="fas fa-home" aria-hidden="true" />
           </span>
