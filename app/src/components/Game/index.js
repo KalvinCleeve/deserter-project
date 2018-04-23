@@ -15,31 +15,34 @@ import Tile from 'src/components/Game/Tile';
 export default class Game extends React.Component {
   static propTypes = {
     level1: PropTypes.array.isRequired,
-    moveRight: PropTypes.func.isRequired,
-    moveLeft: PropTypes.func.isRequired,
-    moveUp: PropTypes.func.isRequired,
-    moveDown: PropTypes.func.isRequired,
+    testMoveRight: PropTypes.func.isRequired,
+    testMoveLeft: PropTypes.func.isRequired,
+    testMoveUp: PropTypes.func.isRequired,
+    testMoveDown: PropTypes.func.isRequired,
     direction: PropTypes.string.isRequired,
     positionHero: PropTypes.string.isRequired,
   };
 
   componentDidMount = () => {
-    const move = document.addEventListener('keydown', this.handleKeyPress);
-  }
+    document.addEventListener('keydown', this.handleKeyPress);
+  };
+  componentWillUnmount = () => {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  };
 
   handleKeyPress = (event) => {
     switch (event.key) {
       case 'ArrowRight':
-        this.props.moveRight(this.props.level1);
+        this.props.testMoveRight();
         break;
       case 'ArrowLeft':
-        this.props.moveLeft(this.props.level1);
+        this.props.testMoveLeft();
         break;
       case 'ArrowUp':
-        this.props.moveUp(this.props.level1);
+        this.props.testMoveUp();
         break;
       case 'ArrowDown':
-        this.props.moveDown(this.props.level1);
+        this.props.testMoveDown();
         break;
       default:
     }
@@ -54,6 +57,7 @@ export default class Game extends React.Component {
               element={tile.element}
               obstacle={tile.obstacle}
               id={`${lineIndex}-${index}`}
+              // eslint-disable-next-line
               key={`${lineIndex}-${index}`}
               hero={this.props.positionHero === `${lineIndex}-${index}`}
               direction={this.props.positionHero === `${lineIndex}-${index}` && this.props.direction}

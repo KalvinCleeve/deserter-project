@@ -8,7 +8,8 @@ import { bindActionCreators } from 'redux';
  * Local import
  */
 import Game from 'src/components/Game';
-import { moveRight, moveLeft, moveUp, moveDown } from 'src/store/movement';
+import { testMoveRight, testMoveLeft, testMoveUp, testMoveDown } from 'src/store/testMovement';
+
 
 // Action Creators
 
@@ -25,10 +26,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => (
   bindActionCreators(
     {
-      moveRight,
-      moveLeft,
-      moveUp,
-      moveDown,
+      testMoveRight,
+      testMoveLeft,
+      testMoveUp,
+      testMoveDown,
     },
     dispatch,
   )
