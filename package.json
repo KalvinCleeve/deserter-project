@@ -6,8 +6,13 @@
   "author": "Maxime Vasse <mallaxoz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start:node": "node server/index.js",
-    "start:brunch": "brunch watch"
+    "build": "brunch build",
+    "start": "brunch watch --server",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "mocha tests/.setup.js tests/**/*.test.js",
+    "test:watch": "mocha --watch tests/.setup.js tests/**/*.test.js",
+    "test:one": "mocha --watch tests/.setup.js $1"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
