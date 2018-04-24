@@ -17,7 +17,7 @@
 }
 
 .forest
-  background-image: url(/images/environement/grounds/grass_1.png);
+  background-image: url(/images/environement/grounds/grass_4.png);
   background-size: cover;
   image-rendering: pixelated
 
@@ -63,6 +63,8 @@
   image-rendering: pixelated
 
 }
+  .door:after
+    transform: rotate(-90deg)
 
 // a mettre a jour hero doit etre un ID
 #hero{
@@ -79,18 +81,25 @@
 
 }
     &.right:after{
-      content: "right";
-      color: blue;
+      content: ''
+      height: 100%
+      width: 100%
+      background-image: url(/images/hero/hero.png)
+      background-position: 0px 50px
+      color: black;
       margin: auto;
-
     }
 
   &.left{
   background-color: orange;
 }
     &.left:after{
-      content: "left";
-      color: green;
+      content: ''
+      height: 100%
+      width: 100%
+      background-image: url(/images/hero/hero.png)
+      background-position: 55px 180px
+      color: black;
       margin: auto;
     }
 
@@ -98,8 +107,12 @@
   background-color: black;
 }
     &.up:after{
-      content: "up";
-      color: white;
+      content: ''
+      height: 100%
+      width: 100%
+      background-image: url(/images/hero/hero.png)
+      background-position: 185px 244px
+      color: black;
       margin: auto;
     }
 
@@ -111,7 +124,7 @@
       height: 100%
       width: 100%
       background-image: url(/images/hero/hero.png)
-      background-position: 0 -15px
+      background-position: 185px 115px
       color: black;
       margin: auto;
     }
