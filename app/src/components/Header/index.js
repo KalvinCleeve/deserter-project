@@ -33,6 +33,18 @@ const Header = () => (
           </span>
           <span>Se connecter</span>
         </Link>
+        <Link className="navbar-item" to="/sign">
+          <span className="icon is-large">
+            <i className="fas fa-user" aria-hidden="true" />
+          </span>
+          <span>S'inscrire</span>
+        </Link>
+        <Link className="navbar-item" to="/profil">
+          <span className="icon is-large">
+            <i className="fas fa-user" aria-hidden="true" />
+          </span>
+          <span>Profil</span>
+        </Link>
         <Link className="navbar-item" to="/game">
           <span className="icon is-large">
             <i className="fas fa-play-circle" aria-hidden="true" />

@@ -8,6 +8,8 @@ import Home from 'src/components/Home';
 import Error404 from 'src/components/Error404';
 import Game from 'src/containers/Game';
 import Connect from 'src/components/Connect';
+import Sign from 'src/components/Sign';
+import Profil from 'src/components/Profil';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 /* Code */
@@ -19,6 +21,8 @@ const App = () => (
         <Route path="/" exact component={Home} />
         <Route path="/game" component={Game} />
         <Route path="/connect" component={Connect} />
+        <Route path="/sign" component={Sign} />
+        <Route path="/profil" component={Profil} />
         {/* <Route path="/cgu" component={cgu} /> */}
         {/* <Route path="/contact" component={Contact} /> */}
         <Route component={Error404} />
