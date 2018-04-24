@@ -13,7 +13,7 @@ import React from 'react';
  */
 const Connect = () => (
   <div id="connect">
-    <form className="form-connect has-text-centered" action="" method="POST">
+    <form className="form-connect has-text-centered" action="http://localhost:3000/connect" method="POST">
       <input className="form-connect-input" type="email" name="email" placeholder="Votre Email" />
       <input className="form-connect-input" type="password" name="password" placeholder="Votre Mot de passe" />
       <button className="button is-dark form-connect-button" type="submit">Se connecter</button>
