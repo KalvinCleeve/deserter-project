@@ -9,6 +9,7 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 // Reducer
 import movement from 'src/store/movement';
 import map from 'src/store/map';
+import quiz from 'src/store/quiz';
 
 // Middleware
 import testMovement from './testMovement';
@@ -25,7 +26,7 @@ if (window.devToolsExtension) {
 // Middleware vers Enhancers
 const exampleEnhancer = applyMiddleware(testMovement);
 const enhancers = compose(exampleEnhancer, ...devTools);
-const rootReducer = combineReducers({ movement, map });
+const rootReducer = combineReducers({ movement, map, quiz });
 
 // createStore
 const store = createStore(rootReducer, enhancers);
