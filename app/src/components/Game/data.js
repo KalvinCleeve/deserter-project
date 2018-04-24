@@ -17,6 +17,24 @@ const border =
   obstacle: true,
 };
 
+const borderTop =
+{
+  element: 'unknownTop',
+  obstacle: true,
+};
+
+const borderBottom =
+{
+  element: 'unknownBottom',
+  obstacle: true,
+};
+
+const borderLeft =
+{
+  element: 'unknownLeft',
+  obstacle: true,
+};
+
 const water =
 {
   element: 'water',
@@ -31,17 +49,16 @@ const door =
 
 
 export const level1 = [
-  [border, border, border, border, border, border, border, border, border, border, border],
-  [border, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
-  [border, forest, forest, water, water, water, water, forest, forest, forest, border],
-  [border, forest, forest, water, water, water, water, forest, forest, forest, border],
-  [border, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
-  [border, forest, forest, forest, forest, forest, forest, forest, forest, forest, door],
-  [border, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
-  [border, forest, forest, forest, tree, tree, tree, tree, forest, forest, border],
-  [border, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
-  [border, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
-  [border, border, border, border, border, border, border, border, border, border, border],
-];
+  [borderTop, borderTop, borderTop, borderTop, borderTop, borderTop, borderTop, borderTop, borderTop, borderTop, borderTop],
+  [borderLeft, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
+  [borderLeft, forest, forest, water, water, water, water, forest, forest, forest, border],
+  [borderLeft, forest, forest, water, water, water, water, forest, forest, forest, border],
+  [borderLeft, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
+  [borderLeft, forest, forest, forest, forest, forest, forest, forest, forest, forest, door],
+  [borderLeft, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
+  [borderLeft, forest, forest, forest, tree, tree, tree, tree, forest, forest, border],
+  [borderLeft, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
+  [borderLeft, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
+  [borderBottom, borderBottom, borderBottom, borderBottom, borderBottom, borderBottom, borderBottom, borderBottom, borderBottom, borderBottom, borderBottom]];
 
 export const level2 = [];

@@ -8,7 +8,7 @@
 }
 
 .tile, #game{
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
 .tile, .forest, .tree, .unknown, .water, .door{
@@ -16,23 +16,52 @@
   height: 50px
 }
 
-.forest{
-  background-color:#28c34f;
-}
+.forest
+  background-image: url(/images/environement/grounds/grass_1.png);
+  background-size: cover;
+  image-rendering: pixelated
 
 .tree{
-  background-color:#175e29;
+  background-image: url(/images/trees/bush.png);
+  background-size: cover;
+  image-rendering: pixelated
 }
 
 .unknown{
-  background-color: grey;
+  background-image: url(/images/environement/Walls/cave_6.png)
+  background-size: cover;
+  image-rendering: pixelated
+}
+
+.unknownTop{
+  background-image: url(/images/environement/Walls/fence_2.png)
+  background-size: cover;
+  image-rendering: pixelated
+}
+
+.unknownBottom{
+  background-image: url(/images/environement/Walls/cave_8.png)
+  background-size: cover;
+  image-rendering: pixelated
+}
+
+.unknownLeft{
+  background-image: url(/images/environement/Walls/cave_4.png)
+  background-size: cover;
+  image-rendering: pixelated
 }
 
 .water{
-  background-color:blue;
+  background-image: url(/images/environement/Walls/water_2.png);
+  background-size: cover;
+  image-rendering: pixelated
 }
 .door{
-  background-color:#683437;
+  background-image: url(/images/environement/Walls/cave_entry.png)
+  background-size: cover;
+  transform: rotate(90deg);
+  image-rendering: pixelated
+
 }
 
 // a mettre a jour hero doit etre un ID
@@ -47,11 +76,13 @@
   &.right{
   background-color: red;
 
+
 }
     &.right:after{
       content: "right";
       color: blue;
       margin: auto;
+
     }
 
   &.left{
@@ -76,7 +107,11 @@
   background-color: white;
 }
     &.down:after{
-      content: "down";
+      content: ''
+      height: 100%
+      width: 100%
+      background-image: url(/images/hero/hero.png)
+      background-position: 0 -15px
       color: black;
       margin: auto;
     }
