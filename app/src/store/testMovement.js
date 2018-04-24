@@ -19,9 +19,9 @@ export default store => next => (action) => {
   // Code
   switch (action.type) {
     case TEST_MOVE_RIGHT: {
-      axios
-        .get('http://localhost:3000/')
-        .then(result => console.log(result.data));
+      // axios
+      //   .get('http://localhost:3000/')
+      //   .then(result => console.log(result.data));
 
       store.dispatch(moveRight(store.getState().map.level1));
       break;
@@ -29,7 +29,7 @@ export default store => next => (action) => {
     case TEST_MOVE_LEFT: {
       store.dispatch(moveLeft(store.getState().map.level1));
       axios
-        .get('https://opentdb.com/api.php?amount=1&category=11')
+        .get(`https://opentdb.com/api.php?amount=1&category=${store.getState().quiz.category}&difficulty=${store.getState().quiz.difficulty}`)
         .then(result => store.dispatch(createQuestion(result.data.results[0])));
       break;
     }

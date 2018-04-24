@@ -2,9 +2,9 @@
  * Initial State
  */
 const initialState = {
-  category: '',
+  category: 15,
   type: '',
-  difficulty: '',
+  difficulty: 'medium',
   question: '',
   correct_aswer: '',
   incorrect_aswers: [],
