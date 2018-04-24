@@ -3,6 +3,7 @@
  */
 import axios from 'axios';
 import { moveRight, moveLeft, moveUp, moveDown } from 'src/store/movement';
+import { createQuestion } from 'src/store/quiz';
 /*
  * Code
  */
@@ -28,8 +29,8 @@ export default store => next => (action) => {
     case TEST_MOVE_LEFT: {
       store.dispatch(moveLeft(store.getState().map.level1));
       axios
-        .get('http://localhost:3000/testa')
-        .then(result => console.log(result.data));
+        .get('https://opentdb.com/api.php?amount=1&category=11')
+        .then(result => store.dispatch(createQuestion(result.data.results[0])));
       break;
     }
     case TEST_MOVE_UP: {
@@ -45,7 +46,6 @@ export default store => next => (action) => {
   // On passe au voisin
   next(action);
 };
-
 
 // console.log(store.getState());
 export const testMoveRight = () => ({
