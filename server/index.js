@@ -2,24 +2,19 @@
 * Require
 */
 const express = require('express');
-const http = require('http');
+const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
 
 /*
 * Consts
 */
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /*
 * Path
 */
 const url = 'mongodb://localhost:27017/deserter';
-
-/*
-* Express
-*/
-// Route
-app.get('/test', () => 'bonjour');
 
 /*
 * BDD
@@ -47,4 +42,10 @@ app.get('/testa', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
   res.send('Vous êtes en test');
 });
+
+app.post('/connect', (req, res) => {
+  const { test } = req.body;
+  console.log(test);
+});
+
 app.listen(3000);

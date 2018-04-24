@@ -27,11 +27,23 @@ const Header = () => (
           </span>
           <span>Accueil</span>
         </Link>
-        <Link className="navbar-item" to="/login">
+        <Link className="navbar-item" to="/connect">
           <span className="icon is-large">
             <i className="fas fa-sign-out-alt" aria-hidden="true" />
           </span>
           <span>Se connecter</span>
+        </Link>
+        <Link className="navbar-item" to="/sign">
+          <span className="icon is-large">
+            <i className="fas fa-user" aria-hidden="true" />
+          </span>
+          <span>S'inscrire</span>
+        </Link>
+        <Link className="navbar-item" to="/profil">
+          <span className="icon is-large">
+            <i className="fas fa-user" aria-hidden="true" />
+          </span>
+          <span>Profil</span>
         </Link>
         <Link className="navbar-item" to="/game">
           <span className="icon is-large">
