@@ -7,7 +7,6 @@ import React from 'react';
  * Local import
  */
 
-
 /**
  * Code
  */
@@ -21,7 +20,7 @@ const Home = () => (
         </p>
       </div>
       <div>
-        <button className="button is-dark is-large">Jouer maintenant !</button>
+        <button id="play-now" className="button is-dark is-large">Jouer maintenant !</button>
       </div>
     </div>
   </div>
