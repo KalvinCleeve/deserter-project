@@ -27,7 +27,7 @@ const Header = () => (
           </span>
           <span>Accueil</span>
         </Link>
-        <Link className="navbar-item" to="/login">
+        <Link className="navbar-item" to="/connect">
           <span className="icon is-large">
             <i className="fas fa-sign-out-alt" aria-hidden="true" />
           </span>

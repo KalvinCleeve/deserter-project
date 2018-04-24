@@ -2,7 +2,6 @@
 * Require
 */
 const express = require('express');
-const http = require('http');
 const { MongoClient } = require('mongodb');
 
 /*
@@ -14,12 +13,6 @@ const app = express();
 * Path
 */
 const url = 'mongodb://localhost:27017/deserter';
-
-/*
-* Express
-*/
-// Route
-app.get('/test', () => 'bonjour');
 
 /*
 * BDD

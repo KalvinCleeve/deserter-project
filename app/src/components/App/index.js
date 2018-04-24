@@ -7,6 +7,7 @@ import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 import Error404 from 'src/components/Error404';
 import Game from 'src/containers/Game';
+import Connect from 'src/components/Connect';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 /* Code */
@@ -17,7 +18,7 @@ const App = () => (
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/game" component={Game} />
-        {/* <Route path="/login" component={Login} /> */}
+        <Route path="/connect" component={Connect} />
         {/* <Route path="/cgu" component={cgu} /> */}
         {/* <Route path="/contact" component={Contact} /> */}
         <Route component={Error404} />
