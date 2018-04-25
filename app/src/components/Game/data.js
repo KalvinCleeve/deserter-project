@@ -47,6 +47,12 @@ const door =
   obstacle: false,
 };
 
+const lever =
+{
+  element: 'lever',
+  obstacle: true,
+};
+
 
 export const level1 = [
   [borderTop, borderTop, borderTop, borderTop, borderTop, borderTop, borderTop, borderTop, borderTop, borderTop, borderTop],
@@ -54,7 +60,7 @@ export const level1 = [
   [borderLeft, forest, forest, water, water, water, water, forest, forest, forest, border],
   [borderLeft, forest, forest, water, water, water, water, forest, forest, forest, border],
   [borderLeft, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
-  [borderLeft, forest, forest, forest, forest, forest, forest, forest, forest, forest, door],
+  [borderLeft, forest, forest, lever, forest, forest, forest, forest, forest, forest, door],
   [borderLeft, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],
   [borderLeft, forest, forest, forest, tree, tree, tree, tree, forest, forest, border],
   [borderLeft, forest, forest, forest, forest, forest, forest, forest, forest, forest, border],

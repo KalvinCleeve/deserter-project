@@ -19,6 +19,7 @@ export default class Game extends React.Component {
     testMoveLeft: PropTypes.func.isRequired,
     testMoveUp: PropTypes.func.isRequired,
     testMoveDown: PropTypes.func.isRequired,
+    testInteraction: PropTypes.func.isRequired,
     direction: PropTypes.string.isRequired,
     positionHero: PropTypes.string.isRequired,
   };
@@ -44,6 +45,10 @@ export default class Game extends React.Component {
         break;
       case 'ArrowDown':
         this.props.testMoveDown();
+        break;
+        // Touche espace
+      case ' ':
+        this.props.testInteraction();
         break;
       default:
     }

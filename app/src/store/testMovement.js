@@ -3,6 +3,7 @@
  */
 import axios from 'axios';
 import { moveRight, moveLeft, moveUp, moveDown } from 'src/store/movement';
+import { interaction } from 'src/store/action';
 import { createQuestion } from 'src/store/quiz';
 /*
  * Code
@@ -12,6 +13,7 @@ const TEST_MOVE_RIGHT = 'TEST_MOVE_RIGHT';
 const TEST_MOVE_LEFT = 'TEST_MOVE_LEFT';
 const TEST_MOVE_UP = 'TEST_MOVE_UP';
 const TEST_MOVE_DOWN = 'TEST_MOVE_DOWN';
+const TEST_INTERACTION = 'TEST_INTERACTION';
 /*
  * Middleware
  */
@@ -41,6 +43,10 @@ export default store => next => (action) => {
       store.dispatch(moveDown(store.getState().map.level1));
       break;
     }
+    case TEST_INTERACTION: {
+      store.dispatch(interaction(store.getState().map.level1, store.getState().movement.heros));
+      break;
+    }
     default:
   }
   // On passe au voisin
@@ -62,4 +68,7 @@ export const testMoveUp = () => ({
 
 export const testMoveDown = () => ({
   type: TEST_MOVE_DOWN,
+});
+export const testInteraction = () => ({
+  type: TEST_INTERACTION,
 });
