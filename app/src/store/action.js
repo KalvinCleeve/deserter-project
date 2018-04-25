@@ -2,7 +2,7 @@
  * Initial State
  */
 const initialState = {
-
+  test: true,
 };
 
 /**
@@ -21,12 +21,13 @@ const reducer = (state = initialState, action = {}) => {
           const position = action.heros.positionHeros.split('-');
           position[1] = Number(position[1]) + 1;
           if (action.map[position[0]][position[1]].element === 'lever') {
-            console.log('test');
+            return Object.assign({}, state, {
+              test: false,
+            });
           }
           break;
         }
         default:
-          console.log('marche pas');
       }
       return {
         ...state,

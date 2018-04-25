@@ -30,9 +30,9 @@ export default store => next => (action) => {
     }
     case TEST_MOVE_LEFT: {
       store.dispatch(moveLeft(store.getState().map.level1));
-      axios
-        .get(`https://opentdb.com/api.php?amount=1&category=${store.getState().quiz.category}&difficulty=${store.getState().quiz.difficulty}`)
-        .then(result => store.dispatch(createQuestion(result.data.results[0])));
+      // axios
+      //   .get(`https://opentdb.com/api.php?amount=1&category=${store.getState().quiz.category}&difficulty=${store.getState().quiz.difficulty}`)
+      //   .then(result => store.dispatch(createQuestion(result.data.results[0])));
       break;
     }
     case TEST_MOVE_UP: {
