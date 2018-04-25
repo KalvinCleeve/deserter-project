@@ -16,17 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 */
 const url = 'mongodb://localhost:27017/deserter';
 
-// le server est lancé sur le port localhost:3000
-app.get('/', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
-  res.send('Vous êtes à l\'accueil');
-});
-
-app.get('/testa', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
-  res.send('Vous êtes en test');
-});
-
 /*
 * Formulaire de connexion
 */
@@ -42,7 +31,7 @@ app.post('/connect', (req, res) => {
     dbo.collection('Users').findOne({ email }, (errorFind, result) => {
       if (errorFind) throw errorFind;
       if (password === result.password) {
-        console.log('connexion !');
+        console.log(result);
       }
       db.close();
     });
