@@ -11,6 +11,7 @@ import movement from 'src/store/movement';
 import map from 'src/store/map';
 import quiz from 'src/store/quiz';
 import action from 'src/store/action';
+import user from 'src/store/user';
 
 // Middleware
 import testMovement from './testMovement';
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
   map,
   quiz,
   action,
+  user,
 });
 
 // createStore

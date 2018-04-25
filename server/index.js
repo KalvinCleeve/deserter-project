@@ -47,8 +47,8 @@ app.post('/connect', (req, res) => {
       db.close();
     });
   });
-
-  res.send('Envoi du formulaire');
+  res.writeHead(301, { Location: 'http://localhost:3333' });
+  res.end();
 });
 
 app.listen(3000);
