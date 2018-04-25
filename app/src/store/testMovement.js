@@ -1,10 +1,10 @@
 /*
  * Import
  */
-import axios from 'axios';
+// import axios from 'axios';
 import { moveRight, moveLeft, moveUp, moveDown } from 'src/store/movement';
 import { interaction } from 'src/store/action';
-import { createQuestion } from 'src/store/quiz';
+// import { createQuestion } from 'src/store/quiz';
 /*
  * Code
  */
