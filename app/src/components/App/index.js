@@ -6,11 +6,11 @@ import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 import Error404 from 'src/components/Error404';
-import Game from 'src/containers/Game';
 import Connect from 'src/components/Connect';
 import Sign from 'src/components/Sign';
 import Profil from 'src/components/Profil';
 import Quiz from 'src/components/Quiz';
+import Interface from 'src/components/Interface';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 /* Code */
@@ -20,7 +20,7 @@ const App = () => (
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/game" component={Game} />
+        <Route path="/game" component={Interface} />
         <Route path="/connect" component={Connect} />
         <Route path="/sign" component={Sign} />
         <Route path="/profil" component={Profil} />

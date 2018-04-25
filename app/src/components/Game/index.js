@@ -56,19 +56,21 @@ export default class Game extends React.Component {
 
   render() {
     return (
-      <div id="game">
-        {this.props.level1.map((line, lineIndex) => (
-          line.map((tile, index) => (
-            <Tile
-              element={tile.element}
-              obstacle={tile.obstacle}
-              id={`${lineIndex}-${index}`}
-              // eslint-disable-next-line
-              key={`${lineIndex}-${index}`}
-              hero={this.props.positionHero === `${lineIndex}-${index}`}
-              direction={this.props.positionHero === `${lineIndex}-${index}` && this.props.direction}
-            />
-            ))))}
+      <div id="boardGame" className="column is-half">
+        <div id="game">
+          {this.props.level1.map((line, lineIndex) => (
+            line.map((tile, index) => (
+              <Tile
+                element={tile.element}
+                obstacle={tile.obstacle}
+                id={`${lineIndex}-${index}`}
+                // eslint-disable-next-line
+                key={`${lineIndex}-${index}`}
+                hero={this.props.positionHero === `${lineIndex}-${index}`}
+                direction={this.props.positionHero === `${lineIndex}-${index}` && this.props.direction}
+              />
+              ))))}
+        </div>
       </div>
     );
   }
