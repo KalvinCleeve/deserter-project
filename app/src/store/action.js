@@ -1,8 +1,9 @@
+import { level1 } from 'src/components/Game/data';
 /**
  * Initial State
  */
 const initialState = {
-  test: true,
+  level1,
 };
 
 /**
@@ -20,9 +21,12 @@ const reducer = (state = initialState, action = {}) => {
         case 'right': {
           const position = action.heros.positionHeros.split('-');
           position[1] = Number(position[1]) + 1;
-          if (action.map[position[0]][position[1]].element === 'lever') {
+          if (state.level1[position[0]][position[1]].element === 'lever') {
             return Object.assign({}, state, {
-              test: false,
+              level1: {
+                ...state.level1,
+                0: true,
+              },
             });
           }
           break;
@@ -41,9 +45,8 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
-export const interaction = (map, heros) => ({
+export const interaction = heros => ({
   type: INTERACTION,
-  map,
   heros,
 });
 

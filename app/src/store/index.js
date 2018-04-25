@@ -8,7 +8,6 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
  */
 // Reducer
 import movement from 'src/store/movement';
-import map from 'src/store/map';
 import quiz from 'src/store/quiz';
 import action from 'src/store/action';
 import user from 'src/store/user';
@@ -30,7 +29,6 @@ const exampleEnhancer = applyMiddleware(testMovement);
 const enhancers = compose(exampleEnhancer, ...devTools);
 const rootReducer = combineReducers({
   movement,
-  map,
   quiz,
   action,
   user,

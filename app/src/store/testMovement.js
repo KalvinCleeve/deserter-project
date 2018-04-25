@@ -25,26 +25,26 @@ export default store => next => (action) => {
       //   .get('http://localhost:3000/')
       //   .then(result => console.log(result.data));
 
-      store.dispatch(moveRight(store.getState().map.level1));
+      store.dispatch(moveRight(store.getState().action.level1));
       break;
     }
     case TEST_MOVE_LEFT: {
-      store.dispatch(moveLeft(store.getState().map.level1));
+      store.dispatch(moveLeft(store.getState().action.level1));
       // axios
       //   .get(`https://opentdb.com/api.php?amount=1&category=${store.getState().quiz.category}&difficulty=${store.getState().quiz.difficulty}`)
       //   .then(result => store.dispatch(createQuestion(result.data.results[0])));
       break;
     }
     case TEST_MOVE_UP: {
-      store.dispatch(moveUp(store.getState().map.level1));
+      store.dispatch(moveUp(store.getState().action.level1));
       break;
     }
     case TEST_MOVE_DOWN: {
-      store.dispatch(moveDown(store.getState().map.level1));
+      store.dispatch(moveDown(store.getState().action.level1));
       break;
     }
     case TEST_INTERACTION: {
-      store.dispatch(interaction(store.getState().map.level1, store.getState().movement.heros));
+      store.dispatch(interaction(store.getState().movement.heros));
       break;
     }
     default:

@@ -17,7 +17,7 @@ import { testMoveRight, testMoveLeft, testMoveUp, testMoveDown, testInteraction 
  * Code
  */
 const mapStateToProps = state => ({
-  level1: state.map.level1,
+  level1: state.action.level1,
   positionHero: state.movement.heros.positionHeros,
   direction: state.movement.heros.direction,
 });
