@@ -16,22 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 */
 const url = 'mongodb://localhost:27017/deserter';
 
-/*
-* BDD
-*/
-
-// Connexion à la BDD
-MongoClient.connect(url, (err, db) => {
-  if (err) throw err;
-
-  const dbo = db.db('deserter');
-  dbo.collection('Users').findOne({}, (errorFind, result) => {
-    if (errorFind) throw errorFind;
-    console.log(result);
-    db.close();
-  });
-});
-
 // le server est lancé sur le port localhost:3000
 app.get('/', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
@@ -43,9 +27,28 @@ app.get('/testa', (req, res) => {
   res.send('Vous êtes en test');
 });
 
+/*
+* Formulaire de connexion
+*/
 app.post('/connect', (req, res) => {
-  const { test } = req.body;
-  console.log(test);
+  const { email } = req.body;
+  const { password } = req.body;
+  // Requetes et connexion à la BDD
+  MongoClient.connect(url, (err, db) => {
+    if (err) throw err;
+
+    // Requetes à la BDD pour vérifier l'email et le password
+    const dbo = db.db('deserter');
+    dbo.collection('Users').findOne({ email }, (errorFind, result) => {
+      if (errorFind) throw errorFind;
+      if (password === result.password) {
+        console.log('connexion !');
+      }
+      db.close();
+    });
+  });
+
+  res.send('Envoi du formulaire');
 });
 
 app.listen(3000);
