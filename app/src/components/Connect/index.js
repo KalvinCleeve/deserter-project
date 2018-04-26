@@ -2,6 +2,7 @@
  * Npm import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
@@ -13,11 +14,18 @@ import React from 'react';
  */
 export default class Connect extends React.Component {
   /**
+   * PropTypes
+   */
+  static propTypes = {
+    testConnectUser: PropTypes.func.isRequired,
+  };
+
+  /**
    * Actions
    */
   connectUser = (event) => {
     event.preventDefault();
-    console.log('post envoyé');
+    this.props.testConnectUser(event.target.email.value, event.target.password.value);
   };
 
   /**
@@ -26,7 +34,7 @@ export default class Connect extends React.Component {
   render() {
     return (
       <div id="connect">
-        <form className="form-connect has-text-centered" onSubmit={this.connectUser} action="http://localhost:3000/connect" method="POST">
+        <form className="form-connect has-text-centered" onSubmit={this.connectUser} method="POST">
           <input className="form-connect-input" type="email" name="email" placeholder="Votre Email" />
           <input className="form-connect-input" type="password" name="password" placeholder="Votre Mot de passe" />
           <button className="button is-dark form-connect-button" type="submit">Se connecter</button>
@@ -35,6 +43,7 @@ export default class Connect extends React.Component {
     );
   }
 }
+
 
 /**
  * Export

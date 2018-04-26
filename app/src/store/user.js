@@ -16,6 +16,7 @@ const CONNECT_USER = 'CONNECT_USER';
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CONNECT_USER:
+      console.log(action.user);
       return {
         ...state,
         // user: ???,

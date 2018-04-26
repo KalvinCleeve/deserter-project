@@ -7,7 +7,7 @@ import { connectUser } from 'src/store/user';
 /*
  * Local import
  */
-const CONNECT_USER = 'CONNECT_USER';
+const TEST_CONNECT_USER = 'TEST_CONNECT_USER';
 
 
 /*
@@ -16,10 +16,17 @@ const CONNECT_USER = 'CONNECT_USER';
 export default store => next => (action) => {
   // On écoute les actions qui nous intéressent
   switch (action.type) {
-    case CONNECT_USER: {
-      const { user } = action;
-      axios.post('http://localhost:3000/connect', { user });
-      store.dispatch(connectUser(user));
+    case TEST_CONNECT_USER: {
+      // const { email } = action;
+      // const { password } = action;
+      const user = {
+        email: action.email,
+        password: action.password,
+      };
+
+      axios
+        .post('http://localhost:3000/connect', { user })
+        .then(result => store.dispatch(connectUser(result)));
       break;
     }
 
@@ -29,3 +36,12 @@ export default store => next => (action) => {
   // On passe à son voisin
   next(action);
 };
+
+/*
+ * Action Creator
+ */
+export const testConnectUser = (email, password) => ({
+  type: TEST_CONNECT_USER,
+  email,
+  password,
+});
