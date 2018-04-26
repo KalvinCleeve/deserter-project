@@ -14,6 +14,7 @@ import user from 'src/store/user';
 
 // Middleware
 import testMovement from './testMovement';
+import userMiddleware from './userMiddleware';
 
 /*
  * Code
@@ -25,7 +26,7 @@ if (window.devToolsExtension) {
 }
 
 // Middleware vers Enhancers
-const exampleEnhancer = applyMiddleware(testMovement);
+const exampleEnhancer = applyMiddleware(testMovement, userMiddleware);
 const enhancers = compose(exampleEnhancer, ...devTools);
 const rootReducer = combineReducers({
   movement,

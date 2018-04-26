@@ -6,7 +6,7 @@ import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 import Error404 from 'src/components/Error404';
-import Connect from 'src/components/Connect';
+import Connect from 'src/containers/Connect';
 import Sign from 'src/components/Sign';
 import Profil from 'src/components/Profil';
 import Quiz from 'src/components/Quiz';

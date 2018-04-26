@@ -32,6 +32,7 @@ app.post('/connect', (req, res) => {
       if (errorFind) throw errorFind;
       if (password === result.password) {
         console.log(result);
+        // res.send(result);
       }
       db.close();
     });
