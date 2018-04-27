@@ -9,6 +9,7 @@ import Error404 from 'src/components/Error404';
 import Connect from 'src/containers/Connect';
 import Sign from 'src/components/Sign';
 import Profil from 'src/components/Profil';
+import Form from 'src/components/Form';
 import Quiz from 'src/components/Quiz';
 import Interface from 'src/components/Interface';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -24,6 +25,7 @@ const App = () => (
         <Route path="/connect" component={Connect} />
         <Route path="/sign" component={Sign} />
         <Route path="/profil" component={Profil} />
+        <Route path="/Form" component={Form} />
         {/* <Route path="/cgu" component={cgu} /> */}
         {/* <Route path="/contact" component={Contact} /> */}
         <Route component={Error404} />
