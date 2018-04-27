@@ -104,6 +104,13 @@ const Form = () => (
           </span>
         </p>
       </div>
+      <div className="field">
+        <p className="control">
+          <button className="button is-success">
+            Let's go !
+          </button>
+        </p>
+      </div>
     </div>
   </div>
 );
