@@ -20,7 +20,7 @@ const Home = () => (
         <p id="spitch-text"><i>“C’est la guerre, aux armes ! C’est la guerre, fuyez !”</i> <br /> Les gens, crient, hurlent, pleurent…<br /><br /> <strong>C’est la guerre.</strong><br /><br /> Les forces armées réunissent les personnes, homme comme femme, afin de les préparer pour la future boucherie qui va avoir lieu. Les trois puissances mondiales, Borëk, Goza et Taiyaki sont en conflits et nul ne sait pourquoi.<br /><br /> Je suis quelqu’un de banal, sans grande conviction… Et j’ai surtout une grande flemme de faire mumuse avec des flingues !
         </p>
       </div>
-      <button component={Form} id="play-now" className="button is-dark is-large">Jouer maintenant !</button>
+      <button component={Form} id="play-now" className="button is-dark is-large">Jouer maintenant </button>
     </div>
   </div>
 );

@@ -8,42 +8,159 @@ import PropTypes from 'prop-types';
  * Local import
  */
 
-
 /**
  * Code
  */
-export default class Connect extends React.Component {
+export default class Form extends React.Component {
   /**
    * PropTypes
    */
-  static propTypes = {
-    testConnectUser: PropTypes.func.isRequired,
-  };
+   static propTypes = {
+     testConnectUser: PropTypes.func.isRequired,
+   };
 
-  /**
-   * Actions
-   */
+   /**
+    * Actions
+    */
   connectUser = (event) => {
     event.preventDefault();
     this.props.testConnectUser(event.target.email.value, event.target.password.value);
   };
 
   /**
-   * Render
-   */
+  * Render
+  */
+
   render() {
     return (
-      <div id="connect">
-        <form className="form-connect has-text-centered" onSubmit={this.connectUser} method="POST">
-          <input className="form-connect-input" type="email" name="email" placeholder="Votre Email" />
-          <input className="form-connect-input" type="password" name="password" placeholder="Votre Mot de passe" />
-          <button className="button is-dark form-connect-button" type="submit">Se connecter</button>
-        </form>
+      <div id="form" className="columns">
+        {/* Form pour se logger */}
+        <div id="login-form" className="column" onSubmit={this.connectUser}>
+          <h2 className="title">Login</h2>
+          <div className="field">
+            <p className="control has-icons-left has-icons-right">
+              <input
+                type="email"
+                name="email"
+                className="input"
+                placeholder="Email"
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-envelope" />
+              </span>
+              <span className="icon is-small is-right">
+                <i className="fas fa-check" />
+              </span>
+            </p>
+          </div>
+          <div className="field">
+            <p className="control has-icons-left">
+              <input
+                type="password"
+                name="password"
+                className="input"
+                placeholder="Password"
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-lock" />
+              </span>
+            </p>
+          </div>
+          <div className="field">
+            <p className="control">
+              <button className="button is-success">
+                Login
+              </button>
+            </p>
+          </div>
+        </div>
+        {/* Form pour s'inscire */}
+        <div id="sign-form" className="column" action="http://localhost:3000/sign" method="POST">
+          <h2 className="title">Sign in</h2>
+          <div className="field">
+            <label className="label">Firstname</label>
+            <div className="control">
+              <input
+                name="firstname"
+                type="text"
+                className="input"
+                placeholder="John"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">Lastname</label>
+            <div className="control">
+              <input
+                name="lastname"
+                type="text"
+                className="input"
+                placeholder="Rambo"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">Nickname (appear on the scoreboard)</label>
+            <div className="control">
+              <input
+                name="nickname"
+                type="text"
+                className="input"
+                placeholder="warriordu93"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">Email</label>
+            <div className="control">
+              <input
+                name="email"
+                type="email"
+                className="input"
+                placeholder="john.rambo@notmywar.com"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">Password</label>
+            <p className="control has-icons-left">
+              <input
+                type="password"
+                name="password"
+                className="input"
+                placeholder="********"
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-lock" />
+              </span>
+            </p>
+          </div>
+          <div className="field">
+            <label className="label">Confirm password</label>
+            <p className="control has-icons-left">
+              <input
+                type="password"
+                name="password"
+                className="input"
+                placeholder="********"
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-lock" />
+              </span>
+            </p>
+          </div>
+          <div className="field">
+            <p className="control">
+              <button className="button is-success">
+                Let's go !
+              </button>
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
 }
-
 
 /**
  * Export
