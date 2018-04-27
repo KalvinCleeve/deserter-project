@@ -2,7 +2,6 @@
  * Npm import
  */
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 /**
  * Local import
@@ -48,13 +47,17 @@ const Form = () => (
     <div id="sign-form" className="column">
       <h2 className="title">Sign in</h2>
       <div className="field">
-        <label className="label">firstname</label>
+        <label className="label">Firstname</label>
         <div className="control">
-          <input type="text" className="input" placeholder="John"/>
+          <input
+            type="text"
+            className="input"
+            placeholder="John"
+          />
         </div>
       </div>
       <div className="field">
-        <label className="label">lastname</label>
+        <label className="label">Lastname</label>
         <div className="control">
           <input
             type="text"
@@ -64,7 +67,7 @@ const Form = () => (
         </div>
       </div>
       <div className="field">
-        <label className="label">pseudo</label>
+        <label className="label">Nickname (appear on the scoreboard)</label>
         <div className="control">
           <input
             type="text"

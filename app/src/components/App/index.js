@@ -25,7 +25,7 @@ const App = () => (
         <Route path="/connect" component={Connect} />
         <Route path="/sign" component={Sign} />
         <Route path="/profil" component={Profil} />
-        <Route path="/Form" component={Form} />
+        <Route path="/form" component={Form} />
         {/* <Route path="/cgu" component={cgu} /> */}
         {/* <Route path="/contact" component={Contact} /> */}
         <Route component={Error404} />
