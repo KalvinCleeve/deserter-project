@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3333');
+  res.header('Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
@@ -32,16 +33,14 @@ app.post('/connect', (req, res) => {
 
     // Requetes à la BDD pour vérifier l'email et le password
     const dbo = db.db('deserter');
-    dbo.collection('Users').findOne({ email }, (errorFind, result) => {
-      if (errorFind) throw errorFind;
+    return dbo.collection('Users').findOne({ email }).then((result) => {
       if (password === result.password) {
-        console.log(result);
-        res.send(result);
+        return result;
       }
-      db.close();
+      return 'password incorrect';
     });
   });
-  res.writeHead(301, { Location: 'http://localhost:3333' });
+  // res.writeHead(301, { Location: 'http://localhost:3333' });
   res.end();
 });
 
