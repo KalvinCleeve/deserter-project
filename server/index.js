@@ -10,7 +10,12 @@ const { MongoClient } = require('mongodb');
 */
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(bodyParser.json());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3333');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 /*
 * Path
 */
@@ -20,8 +25,7 @@ const url = 'mongodb://localhost:27017/deserter';
 * Formulaire de connexion
 */
 app.post('/connect', (req, res) => {
-  const { email } = req.body;
-  const { password } = req.body;
+  const { email, password } = req.body.user;
   // Requetes et connexion à la BDD
   MongoClient.connect(url, (err, db) => {
     if (err) throw err;
@@ -32,7 +36,7 @@ app.post('/connect', (req, res) => {
       if (errorFind) throw errorFind;
       if (password === result.password) {
         console.log(result);
-        // res.send(result);
+        res.send(result);
       }
       db.close();
     });
