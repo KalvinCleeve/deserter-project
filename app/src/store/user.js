@@ -2,7 +2,7 @@
  * Initial State
  */
 const initialState = {
-  user: 'anonyme',
+  user: false,
 };
 
 /**
@@ -19,7 +19,7 @@ const reducer = (state = initialState, action = {}) => {
       console.log(action.user);
       return {
         ...state,
-        // user: ???,
+        user: true,
       };
 
     default:

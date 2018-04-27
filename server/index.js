@@ -3,7 +3,7 @@
 */
 const express = require('express');
 const bodyParser = require('body-parser');
-const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose');
 
 /*
 * Consts
@@ -18,30 +18,56 @@ app.use((req, res, next) => {
   next();
 });
 /*
-* Path
+* connect BDD
 */
-const url = 'mongodb://localhost:27017/deserter';
+mongoose.connect('mongodb://localhost:27017/deserter');
 
 /*
 * Formulaire de connexion
 */
+
 app.post('/connect', (req, res) => {
   const { email, password } = req.body.user;
-  // Requetes et connexion à la BDD
-  MongoClient.connect(url, (err, db) => {
-    if (err) throw err;
 
-    // Requetes à la BDD pour vérifier l'email et le password
-    const dbo = db.db('deserter');
-    return dbo.collection('Users').findOne({ email }).then((result) => {
-      if (password === result.password) {
-        return result;
-      }
-      return 'password incorrect';
-    });
+  mongoose.connect('mongodb://localhost:27017/deserter', (err) => {
+    if (err) throw err;
   });
-  // res.writeHead(301, { Location: 'http://localhost:3333' });
-  res.end();
+
+  const usersSchema = mongoose.Schema({
+    name: String,
+    email: String,
+    password: String,
+    score: Array,
+  });
+  const UsersModel = mongoose.model('users', usersSchema);
+
+  // Récupération de la valeur bidon de test
+  const query = UsersModel.find(null);
+  query.where('email', email);
+  query.where('password', password);
+  query.exec((err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
 });
+
+// app.post('/connect', (req, res) => {
+//   const { email, password } = req.body.user;
+//   // Requetes et connexion à la BDD
+//   MongoClient.connect(url, (err, db) => {
+//     if (err) throw err;
+//
+//     // Requetes à la BDD pour vérifier l'email et le password
+//     const dbo = db.db('deserter');
+//     return dbo.collection('Users').findOne({ email }).then((result) => {
+//       if (password === result.password) {
+//         return result;
+//       }
+//       return 'password incorrect';
+//     });
+//   });
+//   // res.writeHead(301, { Location: 'http://localhost:3333' });
+//   res.end();
+// });
 
 app.listen(3000);
