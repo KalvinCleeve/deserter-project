@@ -17,14 +17,60 @@ export default class Form extends React.Component {
    */
    static propTypes = {
      testConnectUser: PropTypes.func.isRequired,
+     testSignUser: PropTypes.func.isRequired,
+     resetFormError: PropTypes.func.isRequired,
+     changeInputConnectEmail: PropTypes.func.isRequired,
+     changeInputSignFirstname: PropTypes.func.isRequired,
+     changeInputSignLastname: PropTypes.func.isRequired,
+     changeInputSignNickname: PropTypes.func.isRequired,
+     changeInputSignEmail: PropTypes.func.isRequired,
+     errorSignUp: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+     errorConnect: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+     inputConnectEmail: PropTypes.string.isRequired,
+     inputSignFistname: PropTypes.string.isRequired,
+     inputSignLastName: PropTypes.string.isRequired,
+     inputSignNickname: PropTypes.string.isRequired,
+     inputSignEmail: PropTypes.string.isRequired,
    };
 
    /**
     * Actions
     */
+  componentWillUnmount = () => {
+    this.props.resetFormError();
+  };
+
   connectUser = (event) => {
     event.preventDefault();
-    this.props.testConnectUser(event.target.email.value, event.target.password.value);
+    this.props.testConnectUser(event.target.password.value);
+  };
+
+  signUser = (event) => {
+    event.preventDefault();
+    this.props.testSignUser(
+      event.target.password.value,
+      event.target.confirmPassword.value,
+    );
+  };
+
+  changeInputConnectLogin = (event) => {
+    this.props.changeInputConnectEmail(event.target.value);
+  };
+
+  changeInputSignFirstname = (event) => {
+    this.props.changeInputSignFirstname(event.target.value);
+  };
+
+  changeInputSignLastname = (event) => {
+    this.props.changeInputSignLastname(event.target.value);
+  };
+
+  changeInputSignNickname = (event) => {
+    this.props.changeInputSignNickname(event.target.value);
+  };
+
+  changeInputSignEmail = (event) => {
+    this.props.changeInputSignEmail(event.target.value);
   };
 
   /**
@@ -35,7 +81,10 @@ export default class Form extends React.Component {
     return (
       <div id="form" className="columns">
         {/* Form pour se logger */}
-        <div id="login-form" className="column" onSubmit={this.connectUser}>
+        <form id="login-form" className="column" onSubmit={this.connectUser}>
+          {this.props.errorConnect.map(error => (
+            <div key={error} className="form-error" > {error} </div>
+                ))}
           <h2 className="title">Login</h2>
           <div className="field">
             <p className="control has-icons-left has-icons-right">
@@ -44,6 +93,9 @@ export default class Form extends React.Component {
                 name="email"
                 className="input"
                 placeholder="Email"
+                required
+                onChange={this.changeInputConnectLogin}
+                value={this.props.inputConnectEmail}
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope" />
@@ -60,6 +112,7 @@ export default class Form extends React.Component {
                 name="password"
                 className="input"
                 placeholder="Password"
+                required
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-lock" />
@@ -73,9 +126,12 @@ export default class Form extends React.Component {
               </button>
             </p>
           </div>
-        </div>
+        </form>
         {/* Form pour s'inscire */}
-        <div id="sign-form" className="column" action="http://localhost:3000/sign" method="POST">
+        <form id="sign-form" className="column" onSubmit={this.signUser} method="POST">
+          {this.props.errorSignUp.map(error => (
+            <div className="form-error" key={error} > {error} </div>
+                ))}
           <h2 className="title">Sign in</h2>
           <div className="field">
             <label className="label">Firstname</label>
@@ -85,6 +141,9 @@ export default class Form extends React.Component {
                 type="text"
                 className="input"
                 placeholder="John"
+                required
+                onChange={this.changeInputSignFirstname}
+                value={this.props.inputSignFistname}
               />
             </div>
           </div>
@@ -96,6 +155,9 @@ export default class Form extends React.Component {
                 type="text"
                 className="input"
                 placeholder="Rambo"
+                required
+                onChange={this.changeInputSignLastname}
+                value={this.props.inputSignLastName}
               />
             </div>
           </div>
@@ -107,6 +169,9 @@ export default class Form extends React.Component {
                 type="text"
                 className="input"
                 placeholder="warriordu93"
+                required
+                onChange={this.changeInputSignNickname}
+                value={this.props.inputSignNickname}
               />
             </div>
           </div>
@@ -118,6 +183,9 @@ export default class Form extends React.Component {
                 type="email"
                 className="input"
                 placeholder="john.rambo@notmywar.com"
+                required
+                onChange={this.changeInputSignEmail}
+                value={this.props.inputSignEmail}
               />
             </div>
           </div>
@@ -129,6 +197,7 @@ export default class Form extends React.Component {
                 name="password"
                 className="input"
                 placeholder="********"
+                required
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-lock" />
@@ -140,9 +209,10 @@ export default class Form extends React.Component {
             <p className="control has-icons-left">
               <input
                 type="password"
-                name="password"
+                name="confirmPassword"
                 className="input"
                 placeholder="********"
+                required
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-lock" />
@@ -156,7 +226,7 @@ export default class Form extends React.Component {
               </button>
             </p>
           </div>
-        </div>
+        </form>
       </div>
     );
   }
