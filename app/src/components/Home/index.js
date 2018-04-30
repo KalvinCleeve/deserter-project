@@ -2,7 +2,6 @@
  * Npm import
  */
 import React from 'react';
-import Connect from 'src/components/Connect';
 
 /**
  * Local import
