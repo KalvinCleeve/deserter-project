@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 */
 
 const usersSchema = mongoose.Schema({
-  name: String,
+  firstname: String,
   lastname: String,
   nickname: String,
   email: String,
@@ -41,7 +41,6 @@ app.post('/connect', (req, res) => {
   mongoose.connect('mongodb://localhost:27017/deserter', (err) => {
     if (err) throw err;
   });
-  // Récupération de la valeur bidon de test
   const queryConnect = UsersModel.find({ email, password });
   queryConnect.exec((err, result) => {
     if (err) throw err;
@@ -61,7 +60,6 @@ app.post('/verif/email', (req, res) => {
   mongoose.connect('mongodb://localhost:27017/deserter', (err) => {
     if (err) throw err;
   });
-  // Récupération de la valeur bidon de test
   const queryUser = UsersModel.find({ email });
   queryUser.exec((err, result) => {
     if (err) throw err;
@@ -80,7 +78,6 @@ app.post('/verif/nickname', (req, res) => {
   mongoose.connect('mongodb://localhost:27017/deserter', (err) => {
     if (err) throw err;
   });
-  // Récupération de la valeur bidon de test
   const queryUser = UsersModel.find({ nickname });
   queryUser.exec((err, result) => {
     if (err) throw err;
