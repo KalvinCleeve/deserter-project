@@ -36,10 +36,12 @@ const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CONNECT_USER:
       console.log(action.user);
-      window.location.href = 'http://localhost:3333/';
+      // window.location.href = 'http://localhost:3333/';
 
       return {
         ...state,
+        nickname: action.user.nickname,
+        email: action.user.email,
         user: true,
       };
 
@@ -51,10 +53,12 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case SIGN_USER:
+      console.log('Vous êtes connecté');
       console.log(action.user);
-      window.location.href = 'http://localhost:3333/';
       return {
         ...state,
+        nickname: action.user.nickname,
+        email: action.user.email,
         user: true,
       };
 

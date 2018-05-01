@@ -46,7 +46,7 @@ app.post('/connect', (req, res) => {
   queryConnect.exec((err, result) => {
     if (err) throw err;
     if (result[0]) {
-      res.send(true);
+      res.send(result[0]);
     }
     else {
       res.send(false);
@@ -113,7 +113,7 @@ app.post('/signUser', (req, res) => {
   newUser.save((err) => {
     if (err) throw err;
     mongoose.connection.close();
-    res.send('Vous êtes connecté');
+    res.send(req.body.user);
   });
 });
 // app.post('/connect', (req, res) => {
