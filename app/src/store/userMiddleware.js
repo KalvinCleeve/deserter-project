@@ -17,24 +17,24 @@ export default store => next => (action) => {
   // On écoute les actions qui nous intéressent
   switch (action.type) {
     case TEST_CONNECT_USER: {
-      if (!action.email || !action.password) {
-        store.dispatch(connectUserError(['Champ manquant']));
-        // store.dispatch(connectUserError(['Mot de passe manquant']));
-        break;
-      }
       const user = {
         email: store.getState().user.inputConnectEmail,
         password: action.password,
       };
+      if (!user.email || !user.password) {
+        store.dispatch(connectUserError(['Champ manquant']));
+        // store.dispatch(connectUserError(['Mot de passe manquant']));
+        break;
+      }
 
       axios
         .post('http://localhost:3000/connect', { user })
         .then((result) => {
-          if (result.data[0].email) {
-            store.dispatch(connectUser(result.data));
+          if (!result.data) {
+            store.dispatch(connectUserError(['Email ou mot de passe incorrect']));
           }
           else {
-            store.dispatch(connectUserError([result.data]));
+            store.dispatch(connectUser(result.data));
           }
         })
         .catch((error) => {

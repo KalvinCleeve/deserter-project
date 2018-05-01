@@ -35,28 +35,31 @@ const RESET_FORM_ERROR = 'RESET_FORM_ERROR';
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CONNECT_USER:
-    console.log(action.user);
+      console.log(action.user);
+      window.location.href = 'http://localhost:3333/';
+
       return {
         ...state,
         user: true,
       };
 
     case CONNECT_USER_ERROR:
-    console.log(action.error);
+      console.log(action.error);
       return {
         ...state,
         errorConnect: action.error,
       };
 
     case SIGN_USER:
-    console.log(action.user);
+      console.log(action.user);
+      window.location.href = 'http://localhost:3333/';
       return {
         ...state,
         user: true,
       };
 
     case SIGN_USER_ERROR:
-    console.log(action.error);
+      console.log(action.error);
       return {
         ...state,
         errorSignUp: action.error,
@@ -94,6 +97,7 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case CHANGE_INPUT_SIGN_EMAIL:
+
       return {
         ...state,
         inputSignEmail: action.input,

@@ -45,11 +45,11 @@ app.post('/connect', (req, res) => {
   const queryConnect = UsersModel.find({ email, password });
   queryConnect.exec((err, result) => {
     if (err) throw err;
-    if (!result[0]) {
-      res.send('Email ou mot de passe incorrect');
+    if (result[0]) {
+      res.send(true);
     }
     else {
-      res.send(result);
+      res.send(false);
     }
     mongoose.connection.close();
   });
