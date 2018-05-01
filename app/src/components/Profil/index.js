@@ -2,6 +2,7 @@
  * Npm import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
@@ -11,11 +12,11 @@ import React from 'react';
 /**
  * Code
  */
-const Profil = () => (
+const Profil = ({ nickname, email }) => (
   <div id="profil">
-    <h1 className="profil-title">Corbeau</h1>
+    <h1 className="profil-title">{nickname}</h1>
     <h2 className="profil-subtitle">Matricule</h2>
-    <p className="profil-email">john_rambo@gmail.com</p>
+    <p className="profil-email">{email}</p>
     <h2 className="profil-subtitle">Fait d'armes</h2>
     <ul className="profil-list">
       <li className="profil-list-score">568pts le 01/03/2018</li>
@@ -24,6 +25,10 @@ const Profil = () => (
     </ul>
   </div>
 );
+Profil.propTypes = {
+  nickname: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+};
 
 /**
  * Export

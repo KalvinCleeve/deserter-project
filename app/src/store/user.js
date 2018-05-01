@@ -9,6 +9,8 @@ const initialState = {
   inputSignLastName: '',
   inputSignNickname: '',
   inputSignEmail: '',
+  nickname: '',
+  email: '',
 
   inputConnectEmail: '',
 };

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import App from 'src/components/App';
+import Profil from 'src/components/Profil';
 
 // Action Creators
 
@@ -14,14 +14,15 @@ import App from 'src/components/App';
  * Code
  */
 const mapStateToProps = state => ({
-  user: state.user.user,
+  nickname: state.user.nickname,
+  email: state.user.email,
 });
 
 
 const mapDispatchToProps = {};
 
 // Container
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Profil);
 
 
 /**
