@@ -47,7 +47,7 @@ const Header = ({ user, disconnect }) => (
         { user ?
           <Link onClick={disconnect} className="navbar-item" to="/">
             <span className="icon is-large">
-              <i className="fas fa-home" aria-hidden="true" />
+              <i className="fas fa-sign-out-alt" aria-hidden="true" />
             </span>
             <span>Disconnect</span>
           </Link>

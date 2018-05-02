@@ -16,8 +16,8 @@ import Rules from 'src/components/Rules';
 const Interface = () => (
   <div id="interface" className="columns">
     {/* <Score /> */}
-    {/* <Game /> */}
-    <Rules />
+    <Game />
+    {/* <Rules /> */}
   </div>
 );
 
