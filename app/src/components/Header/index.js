@@ -44,6 +44,14 @@ const Header = ({ user }) => (
             <span>Profile</span>
           </Link>
         : '' }
+        { user ?
+          <Link className="navbar-item" to="/">
+            <span className="icon is-large">
+              <i className="fas fa-home" aria-hidden="true" />
+            </span>
+            <span>Disconnect</span>
+          </Link>
+        : '' }
         <Link className="navbar-item" to="/game">
           <span className="icon is-large">
             <i className="fas fa-play-circle" aria-hidden="true" />
