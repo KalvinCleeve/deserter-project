@@ -148,6 +148,7 @@ export default class Form extends React.Component {
                 required
                 onChange={this.changeInputSignFirstname}
                 value={this.props.inputSignFirstname}
+                autoComplete="false"
               />
             </div>
           </div>
@@ -162,6 +163,7 @@ export default class Form extends React.Component {
                 required
                 onChange={this.changeInputSignLastname}
                 value={this.props.inputSignLastname}
+                autoComplete="false"
               />
             </div>
           </div>
@@ -176,6 +178,7 @@ export default class Form extends React.Component {
                 required
                 onChange={this.changeInputSignNickname}
                 value={this.props.inputSignNickname}
+                autoComplete="false"
               />
             </div>
           </div>
@@ -190,6 +193,7 @@ export default class Form extends React.Component {
                 required
                 onChange={this.changeInputSignEmail}
                 value={this.props.inputSignEmail}
+                autoComplete="false"
               />
             </div>
           </div>
