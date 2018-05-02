@@ -27,7 +27,7 @@ const mapStateToProps = state => ({
   errorConnect: state.user.errorConnect,
   errorSignUp: state.user.errorSignUp,
   inputConnectEmail: state.user.inputConnectEmail,
-  inputSignFistname: state.user.inputSignFistname,
+  inputSignFirstname: state.user.inputSignFirstname,
   inputSignLastName: state.user.inputSignLastName,
   inputSignNickname: state.user.inputSignNickname,
   inputSignEmail: state.user.inputSignEmail,

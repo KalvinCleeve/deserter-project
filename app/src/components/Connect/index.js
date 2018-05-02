@@ -27,7 +27,7 @@ export default class Form extends React.Component {
      errorSignUp: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
      errorConnect: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
      inputConnectEmail: PropTypes.string.isRequired,
-     inputSignFistname: PropTypes.string.isRequired,
+     inputSignFirstname: PropTypes.string.isRequired,
      inputSignLastName: PropTypes.string.isRequired,
      inputSignNickname: PropTypes.string.isRequired,
      inputSignEmail: PropTypes.string.isRequired,
@@ -143,7 +143,7 @@ export default class Form extends React.Component {
                 placeholder="John"
                 required
                 onChange={this.changeInputSignFirstname}
-                value={this.props.inputSignFistname}
+                value={this.props.inputSignFirstname}
               />
             </div>
           </div>
