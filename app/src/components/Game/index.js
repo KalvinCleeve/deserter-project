@@ -57,6 +57,8 @@ export default class Game extends React.Component {
   render() {
     return (
       <div id="boardGame" className="column is-half">
+
+        <iframe width="1080" height='760' src="http://v6p9d9t4.ssl.hwcdn.net/html/171523/pac-man-like/index.html" frameBorder="0" allowFullScreen target="_parent" />
         <div id="game">
           {this.props.level1.map((line, lineIndex) => (
             line.map((tile, index) => (
