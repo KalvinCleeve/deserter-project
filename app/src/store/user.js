@@ -5,8 +5,8 @@ const initialState = {
   user: false,
   errorConnect: [],
   errorSignUp: [],
-  inputSignFistname: '',
-  inputSignLastName: '',
+  inputSignFirstname: '',
+  inputSignLastname: '',
   inputSignNickname: '',
   inputSignEmail: '',
   nickname: '',
@@ -87,13 +87,13 @@ const reducer = (state = initialState, action = {}) => {
     case CHANGE_INPUT_SIGN_FIRSTNAME:
       return {
         ...state,
-        inputSignFistname: action.input,
+        inputSignFirstname: action.input,
       };
 
     case CHANGE_INPUT_SIGN_LASTNAME:
       return {
         ...state,
-        inputSignLastName: action.input,
+        inputSignLastname: action.input,
       };
 
     case CHANGE_INPUT_SIGN_NICKNAME:

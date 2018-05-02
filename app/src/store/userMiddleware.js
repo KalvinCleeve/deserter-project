@@ -46,8 +46,8 @@ export default store => next => (action) => {
 
     case TEST_SIGN_USER: {
       const user = {
-        firstname: store.getState().user.inputSignFistname,
-        lastname: store.getState().user.inputSignLastName,
+        firstname: store.getState().user.inputSignFirstname,
+        lastname: store.getState().user.inputSignLastname,
         nickname: store.getState().user.inputSignNickname,
         email: store.getState().user.inputSignEmail,
         password: action.password,
