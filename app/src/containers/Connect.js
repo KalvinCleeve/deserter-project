@@ -31,6 +31,7 @@ const mapStateToProps = state => ({
   inputSignLastname: state.user.inputSignLastname,
   inputSignNickname: state.user.inputSignNickname,
   inputSignEmail: state.user.inputSignEmail,
+  user: state.user.user,
 });
 
 

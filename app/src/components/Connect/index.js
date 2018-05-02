@@ -2,6 +2,7 @@
  * Npm import
  */
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 /**
@@ -15,6 +16,7 @@ export default class Form extends React.Component {
   /**
    * PropTypes
    */
+
    static propTypes = {
      testConnectUser: PropTypes.func.isRequired,
      testSignUser: PropTypes.func.isRequired,
@@ -31,6 +33,7 @@ export default class Form extends React.Component {
      inputSignLastname: PropTypes.string.isRequired,
      inputSignNickname: PropTypes.string.isRequired,
      inputSignEmail: PropTypes.string.isRequired,
+     user: PropTypes.bool.isRequired,
    };
 
    /**
@@ -80,6 +83,7 @@ export default class Form extends React.Component {
   render() {
     return (
       <div id="form" className="columns">
+        { this.props.user ? <Redirect to="/" /> : '' }
         {/* Form pour se logger */}
         <form id="login-form" className="column" onSubmit={this.connectUser}>
           {this.props.errorConnect.map(error => (

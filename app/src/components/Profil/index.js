@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 /**
  * Local import
@@ -12,8 +13,9 @@ import PropTypes from 'prop-types';
 /**
  * Code
  */
-const Profil = ({ nickname, email }) => (
+const Profil = ({ nickname, email, user }) => (
   <div id="profil">
+    { !user ? <Redirect to="/" /> : '' }
     <h1 className="profil-title">{nickname}</h1>
     <h2 className="profil-subtitle">Matricule</h2>
     <p className="profil-email">{email}</p>
@@ -28,6 +30,7 @@ const Profil = ({ nickname, email }) => (
 Profil.propTypes = {
   nickname: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  user: PropTypes.bool.isRequired,
 };
 
 /**

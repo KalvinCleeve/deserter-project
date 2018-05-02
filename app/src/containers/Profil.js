@@ -16,6 +16,7 @@ import Profil from 'src/components/Profil';
 const mapStateToProps = state => ({
   nickname: state.user.nickname,
   email: state.user.email,
+  user: state.user.user,
 });
 
 

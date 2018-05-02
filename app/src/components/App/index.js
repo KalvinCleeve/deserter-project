@@ -20,8 +20,8 @@ const App = ({ user }) => (
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/game" component={Interface} />
-        { !user ? <Route path="/connect" component={Connect} /> : '' }
-        { user ? <Route path="/profil" component={Profil} /> : '' }
+        <Route path="/connect" component={Connect} />
+        <Route path="/profil" component={Profil} />
         {/* <Route path="/cgu" component={cgu} /> */}
         {/* <Route path="/contact" component={Contact} /> */}
         <Route component={Error404} />
