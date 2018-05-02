@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
  * Code
  */
 
-const Header = ({ user }) => (
+const Header = ({ user, disconnect }) => (
   <header id="header">
 
     <nav className="navbar is-dark" aria-label="main navigation">
@@ -45,7 +45,7 @@ const Header = ({ user }) => (
           </Link>
         : '' }
         { user ?
-          <Link className="navbar-item" to="/">
+          <Link onClick={disconnect} className="navbar-item" to="/">
             <span className="icon is-large">
               <i className="fas fa-home" aria-hidden="true" />
             </span>
@@ -64,6 +64,7 @@ const Header = ({ user }) => (
 );
 Header.propTypes = {
   user: PropTypes.bool.isRequired,
+  disconnect: PropTypes.func.isRequired,
 };
 
 /**

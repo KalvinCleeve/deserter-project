@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /* Local import */
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 import Error404 from 'src/components/Error404';
@@ -16,7 +16,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 const App = ({ user }) => (
   <Router>
     <div id="app">
-      <Header user={user} />
+      <Header />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/game" component={Interface} />

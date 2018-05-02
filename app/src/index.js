@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 /*
  * Local import
  */
-import App from 'src/containers/app';
+import App from 'src/containers/App';
 
 import store from 'src/store';
 

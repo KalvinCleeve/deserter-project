@@ -2,13 +2,13 @@
  * Initial State
  */
 const initialState = {
-  user: false,
   errorConnect: [],
   errorSignUp: [],
   inputSignFirstname: '',
   inputSignLastname: '',
   inputSignNickname: '',
   inputSignEmail: '',
+  user: false,
   nickname: '',
   email: '',
 
@@ -21,6 +21,7 @@ const initialState = {
 const CONNECT_USER = 'CONNECT_USER';
 const CONNECT_USER_ERROR = 'CONNECT_USER_ERROR';
 const CHANGE_INPUT_CONNECT_EMAIL = 'CHANGE_INPUT_CONNECT_EMAIL';
+const DISCONNECT = 'DISCONNECT';
 
 const SIGN_USER = 'SIGN_USER';
 const SIGN_USER_ERROR = 'SIGN_USER_ERROR';
@@ -52,6 +53,14 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         errorConnect: action.error,
+      };
+
+    case DISCONNECT:
+      return {
+        ...state,
+        user: false,
+        nickname: '',
+        email: '',
       };
 
     case SIGN_USER:
@@ -168,6 +177,10 @@ export const changeInputSignNickname = input => ({
 export const changeInputSignEmail = input => ({
   type: CHANGE_INPUT_SIGN_EMAIL,
   input,
+});
+
+export const disconnect = () => ({
+  type: DISCONNECT,
 });
 /**
  * Export

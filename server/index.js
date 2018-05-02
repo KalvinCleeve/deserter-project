@@ -45,7 +45,11 @@ app.post('/connect', (req, res) => {
   queryConnect.exec((err, result) => {
     if (err) throw err;
     if (result[0]) {
-      res.send(result[0]);
+      res.send({
+        lastname: result[0].lastname,
+        nickname: result[0].nickname,
+        email: result[0].email,
+      });
     }
     else {
       res.send(false);
@@ -110,7 +114,11 @@ app.post('/signUser', (req, res) => {
   newUser.save((err) => {
     if (err) throw err;
     mongoose.connection.close();
-    res.send(req.body.user);
+    res.send({
+      lastname,
+      nickname,
+      email,
+    });
   });
 });
 // app.post('/connect', (req, res) => {
