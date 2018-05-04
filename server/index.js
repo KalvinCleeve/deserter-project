@@ -105,23 +105,15 @@ app.post('/signUser', (req, res) => {
     password,
   } = req.body.user;
 
+  const hash = bcrypt.hashSync(password, saltRounds);
+
   const newUser = new UsersModel({
     firstname,
     lastname,
     nickname,
     email,
-    password,
+    password: hash,
     score: [],
-  });
-
-  // Hash du password
-  // generate a salt
-  bcrypt.genSalt(saltRounds, (err, salt) => {
-    // hash the password using our new salt
-    bcrypt.hash(password, salt, (errHash, hash) => {
-      // override the cleartext password with the hashed one
-      this.password = hash;
-    });
   });
 
   newUser.save((err) => {
