@@ -1,6 +1,7 @@
 /*
 * Require
 */
+const bcrypt = require('bcrypt');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -8,6 +9,7 @@ const mongoose = require('mongoose');
 /*
 * Consts
 */
+const saltRounds = 10;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -111,6 +113,17 @@ app.post('/signUser', (req, res) => {
     password,
     score: [],
   });
+
+  // Hash du password
+  // generate a salt
+  bcrypt.genSalt(saltRounds, (err, salt) => {
+    // hash the password using our new salt
+    bcrypt.hash(password, salt, (errHash, hash) => {
+      // override the cleartext password with the hashed one
+      this.password = hash;
+    });
+  });
+
   newUser.save((err) => {
     if (err) throw err;
     mongoose.connection.close();
