@@ -43,15 +43,18 @@ app.post('/connect', (req, res) => {
   mongoose.connect('mongodb://localhost:27017/deserter', (err) => {
     if (err) throw err;
   });
-  const queryConnect = UsersModel.find({ email, password });
+  const queryConnect = UsersModel.find({ email });
   queryConnect.exec((err, result) => {
     if (err) throw err;
+
     if (result[0]) {
-      res.send({
-        lastname: result[0].lastname,
-        nickname: result[0].nickname,
-        email: result[0].email,
-      });
+      if (bcrypt.compareSync(password, result[0].password)) {
+        res.send({
+          lastname: result[0].lastname,
+          nickname: result[0].nickname,
+          email: result[0].email,
+        });
+      }
     }
     else {
       res.send(false);
