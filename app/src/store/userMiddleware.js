@@ -53,13 +53,23 @@ export default store => next => (action) => {
         password: action.password,
         confirmPassword: action.confirmPassword,
       };
-        // eslint-disable-next-line
-    if (!user.firstname || !user.lastname || !user.nickname || !user.email || !user.password || !user.confirmPassword) {
+      // eslint-disable-next-line
+      if (!user.firstname || !user.lastname || !user.nickname || !user.email || !user.password || !user.confirmPassword) {
         store.dispatch(signUserError(['Champ manquant']));
         break;
       }
       if (action.password !== action.confirmPassword) {
         store.dispatch(signUserError(['Confirmation mot de passe invalide']));
+        break;
+      }
+
+      /*
+       * Verification requetes NOSQL
+      */
+      const regex = /["/$‘<>{}]/g;
+      // eslint-disable-next-line
+      if (user.firstname.search(regex) !== -1 || user.lastname.search(regex) !== -1 || user.nickname.search(regex) !== -1 || user.email.search(regex) !== -1 || user.password.search(regex) !== -1) {
+        store.dispatch(signUserError(['Pas de caractères spéciaux "/$‘<>{}']));
         break;
       }
 
