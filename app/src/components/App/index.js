@@ -8,6 +8,7 @@ import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 import Error404 from 'src/components/Error404';
 import Connect from 'src/containers/Connect';
+import Contact from 'src/components/Contact';
 import Profil from 'src/containers/Profil';
 import Interface from 'src/components/Interface';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -23,7 +24,7 @@ const App = ({ user }) => (
         <Route path="/connect" component={Connect} />
         <Route path="/profil" component={Profil} />
         {/* <Route path="/cgu" component={cgu} /> */}
-        {/* <Route path="/contact" component={Contact} /> */}
+        <Route path="/contact" component={Contact} />
         <Route component={Error404} />
       </Switch>
       <Footer />
