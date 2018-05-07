@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const session = require('cookie-session');
 /*
 * Consts
 */
@@ -13,11 +13,24 @@ const saltRounds = 10;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3333');
   res.header('Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
+});
+app.use(session({
+  keys: ['maclé'],
+  maxAge: 24 * 60 * 60 * 1000,
+}));
+
+app.get("/",function (req, res, next) {
+ var n = req.session.views || 0;
+ req.session.views = ++n;
+ console.log(session);
+ res.end(n + " vues");
 });
 /*
 * connect BDD
