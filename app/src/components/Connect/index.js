@@ -18,9 +18,9 @@ export default class Form extends React.Component {
    */
 
   static propTypes = {
+    resetFormError: PropTypes.func.isRequired,
     testConnectUser: PropTypes.func.isRequired,
     testSignUser: PropTypes.func.isRequired,
-    resetFormError: PropTypes.func.isRequired,
     changeInputConnectEmail: PropTypes.func.isRequired,
     changeInputSignFirstname: PropTypes.func.isRequired,
     changeInputSignLastname: PropTypes.func.isRequired,
@@ -39,6 +39,7 @@ export default class Form extends React.Component {
   /**
     * Actions
     */
+
   componentWillUnmount = () => {
     this.props.resetFormError();
   };

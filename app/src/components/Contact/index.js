@@ -17,7 +17,6 @@ export default class Contact extends React.Component {
    */
 
   static propTypes = {
-    resetFormError: PropTypes.func.isRequired,
     changeInputContactFirstname: PropTypes.func.isRequired,
     changeInputContactLastname: PropTypes.func.isRequired,
     changeInputContactEmail: PropTypes.func.isRequired,
@@ -30,10 +29,6 @@ export default class Contact extends React.Component {
   /**
    * Actions
    */
-
-  componentWillUnmount = () => {
-    this.props.resetFormError();
-  };
 
   changeInputContactFirstname = (event) => {
     this.props.changeInputContactFirstname(event.target.value);
