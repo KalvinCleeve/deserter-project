@@ -35,6 +35,14 @@ export default store => next => (action) => {
           }
           else {
             store.dispatch(connectUser(result.data));
+            axios
+              .get('http://localhost:3000/', { user })
+              .then((cookie) => {
+                console.log(cookie);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
           }
         })
         .catch((error) => {
