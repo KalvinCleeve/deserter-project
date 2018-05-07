@@ -68,6 +68,9 @@ app.post('/connect', (req, res) => {
           email: result[0].email,
         });
       }
+      else {
+        res.send(false);
+      }
     }
     else {
       res.send(false);
