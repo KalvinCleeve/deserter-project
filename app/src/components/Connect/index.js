@@ -17,26 +17,26 @@ export default class Form extends React.Component {
    * PropTypes
    */
 
-   static propTypes = {
-     testConnectUser: PropTypes.func.isRequired,
-     testSignUser: PropTypes.func.isRequired,
-     resetFormError: PropTypes.func.isRequired,
-     changeInputConnectEmail: PropTypes.func.isRequired,
-     changeInputSignFirstname: PropTypes.func.isRequired,
-     changeInputSignLastname: PropTypes.func.isRequired,
-     changeInputSignNickname: PropTypes.func.isRequired,
-     changeInputSignEmail: PropTypes.func.isRequired,
-     errorSignUp: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-     errorConnect: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-     inputConnectEmail: PropTypes.string.isRequired,
-     inputSignFirstname: PropTypes.string.isRequired,
-     inputSignLastname: PropTypes.string.isRequired,
-     inputSignNickname: PropTypes.string.isRequired,
-     inputSignEmail: PropTypes.string.isRequired,
-     user: PropTypes.bool.isRequired,
-   };
+  static propTypes = {
+    testConnectUser: PropTypes.func.isRequired,
+    testSignUser: PropTypes.func.isRequired,
+    resetFormError: PropTypes.func.isRequired,
+    changeInputConnectEmail: PropTypes.func.isRequired,
+    changeInputSignFirstname: PropTypes.func.isRequired,
+    changeInputSignLastname: PropTypes.func.isRequired,
+    changeInputSignNickname: PropTypes.func.isRequired,
+    changeInputSignEmail: PropTypes.func.isRequired,
+    errorSignUp: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    errorConnect: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    inputConnectEmail: PropTypes.string.isRequired,
+    inputSignFirstname: PropTypes.string.isRequired,
+    inputSignLastname: PropTypes.string.isRequired,
+    inputSignNickname: PropTypes.string.isRequired,
+    inputSignEmail: PropTypes.string.isRequired,
+    user: PropTypes.bool.isRequired,
+  };
 
-   /**
+  /**
     * Actions
     */
   componentWillUnmount = () => {
