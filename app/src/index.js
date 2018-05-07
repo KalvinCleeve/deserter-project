@@ -19,9 +19,9 @@ import store from 'src/store';
  */
 const rootComponent = (
 
-    <Provider store={store}>
-      <App />
-    </Provider>
+  <Provider store={store}>
+    <App />
+  </Provider>
 
 );
 
