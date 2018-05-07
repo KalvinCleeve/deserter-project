@@ -138,9 +138,10 @@ export default class Form extends React.Component {
                 ))}
           <h2 className="title">Sign in</h2>
           <div className="field">
-            <label className="label">Firstname</label>
+            <label className="label" htmlFor="sign_firstname">Firstname</label>
             <div className="control">
               <input
+                id="sign_firstname"
                 name="firstname"
                 type="text"
                 className="input"
@@ -153,9 +154,10 @@ export default class Form extends React.Component {
             </div>
           </div>
           <div className="field">
-            <label className="label">Lastname</label>
+            <label className="label" htmlFor="sign_lastname">Lastname</label>
             <div className="control">
               <input
+                id="sign_lastname"
                 name="lastname"
                 type="text"
                 className="input"
@@ -168,9 +170,10 @@ export default class Form extends React.Component {
             </div>
           </div>
           <div className="field">
-            <label className="label">Nickname (appear on the scoreboard)</label>
+            <label className="label" htmlFor="sign_nickname">Nickname (appear on the scoreboard)</label>
             <div className="control">
               <input
+                id="sign_nickname"
                 name="nickname"
                 type="text"
                 className="input"
@@ -183,9 +186,10 @@ export default class Form extends React.Component {
             </div>
           </div>
           <div className="field">
-            <label className="label">Email</label>
+            <label className="label" htmlFor="sign_email">Email</label>
             <div className="control">
               <input
+                id="sign_email"
                 name="email"
                 type="email"
                 className="input"
@@ -198,9 +202,10 @@ export default class Form extends React.Component {
             </div>
           </div>
           <div className="field">
-            <label className="label">Password</label>
+            <label className="label" htmlFor="sign_password">Password</label>
             <p className="control has-icons-left">
               <input
+                id="sign_password"
                 type="password"
                 name="password"
                 className="input"
@@ -213,9 +218,10 @@ export default class Form extends React.Component {
             </p>
           </div>
           <div className="field">
-            <label className="label">Confirm password</label>
+            <label className="label" htmlFor="sign_confirmPassword">Confirm password</label>
             <p className="control has-icons-left">
               <input
+                id="sign_confirmPassword"
                 type="password"
                 name="confirmPassword"
                 className="input"
