@@ -117,6 +117,10 @@ export default store => next => (action) => {
         nickname: store.getState().user.nickname,
       };
 
+      if (user.newNickname === user.nickname) {
+        break;
+      }
+
       const regex = /["/$‘<>{}]/g;
       // eslint-disable-next-line
       if (user.nickname.search(regex) !== -1) {
@@ -126,12 +130,21 @@ export default store => next => (action) => {
       }
 
       axios
-        .post('http://localhost:3000/edit/nickname', { user })
-        .then((result) => {
-          store.dispatch(updateNickname(result));
-        })
-        .catch((error) => {
-          console.log(error);
+        .post('http://localhost:3000/verif/nickname', { nickname: user.newNickname })
+        .then((nickname) => {
+          if (!nickname.data) {
+            console.log('nickname déjà utilisé');
+          }
+          else {
+            axios
+              .post('http://localhost:3000/edit/nickname', { user })
+              .then((result) => {
+                store.dispatch(updateNickname(result));
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }
         });
     }
       break;

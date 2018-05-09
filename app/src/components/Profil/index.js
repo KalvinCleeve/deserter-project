@@ -34,7 +34,7 @@ class Profil extends React.Component {
   */
   editNickname = (event) => {
     event.preventDefault();
-    this.props.testEditNickname(event.target.value);
+    this.props.testEditNickname();
   }
 
   changeNickname = (event) => {
