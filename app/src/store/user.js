@@ -4,6 +4,7 @@
 const initialState = {
   errorConnect: [],
   errorSignUp: [],
+  changeNickname: true,
   inputSignFirstname: '',
   inputSignLastname: '',
   inputSignNickname: '',
@@ -18,6 +19,7 @@ const initialState = {
 /**
  * Types
  */
+const CHANGE_NICKNAME = 'CHANGE_NICKNAME';
 const CONNECT_USER = 'CONNECT_USER';
 const CONNECT_USER_ERROR = 'CONNECT_USER_ERROR';
 const CHANGE_INPUT_CONNECT_EMAIL = 'CHANGE_INPUT_CONNECT_EMAIL';
@@ -37,6 +39,13 @@ const RESET_FORM_ERROR = 'RESET_FORM_ERROR';
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case CHANGE_NICKNAME:
+
+      return {
+        ...state,
+        changeNickname: true,
+      };
+
     case CONNECT_USER:
       console.log(action.user);
       // window.location.href = 'http://localhost:3333/';
@@ -127,6 +136,10 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
+export const changeNickname = () => ({
+  type: CHANGE_NICKNAME,
+});
+
 export const connectUser = user => ({
   type: CONNECT_USER,
   user,
