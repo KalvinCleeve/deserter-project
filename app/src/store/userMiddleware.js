@@ -160,7 +160,6 @@ export default store => next => (action) => {
     case TEST_EDIT_PASSWORD: {
       const regex = /["/$‘<>{}]/g;
       // eslint-disable-next-line
-      console.log(action.newPassword);
         if (action.newPassword.search(regex) !== -1) {
       // TODO: afficher un message d'erreur
         store.dispatch(profileNicknameError(['Le mot de passe ne doit pas avoir de caractères spéciaux']));

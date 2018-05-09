@@ -150,6 +150,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         switchInputNickname: true,
+        switchInputPassword: true,
         errorProfile: [],
       };
 
