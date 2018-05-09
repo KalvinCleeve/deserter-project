@@ -26,12 +26,12 @@ app.use(session({
   maxAge: 24 * 60 * 60 * 1000,
 }));
 
-app.get("/",function (req, res, next) {
- var n = req.session.views || 0;
- req.session.views = ++n;
- console.log(session);
- res.end(n + " vues");
-});
+// app.get("/",function (req, res, next) {
+//  var n = req.session.views || 0;
+//  req.session.views = ++n;
+//  console.log(session);
+//  res.end(n + " vues");
+// });
 /*
 * connect BDD
 */
@@ -97,6 +97,16 @@ app.post('/verif/email', (req, res) => {
   });
 });
 
+app.post('/edit/nickname', (req, res) => {
+  const { newNickname, nickname } = req.body.user;
+  mongoose.connect('mongodb://localhost:27017/deserter', (err) => {
+    if (err) throw err;
+  });
+  UsersModel.update({ nickname }, { nickname: newNickname }, (err) => {
+    if (err) throw err;
+    res.send(true);
+  });
+});
 
 app.post('/verif/nickname', (req, res) => {
   const { nickname } = req.body;

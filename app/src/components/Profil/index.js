@@ -24,13 +24,21 @@ class Profil extends React.Component {
     user: PropTypes.bool.isRequired,
     done: PropTypes.bool.isRequired,
     changeNickname: PropTypes.func.isRequired,
+    valueNickname: PropTypes.string.isRequired,
+    profileInputNickname: PropTypes.func.isRequired,
+    testEditNickname: PropTypes.func.isRequired,
   };
 
   /**
   * Actions
   */
-  validNickname = () => {
-    this.props.done = true;
+  editNickname = (event) => {
+    event.preventDefault();
+    this.props.testEditNickname(event.target.value);
+  }
+
+  changeNickname = (event) => {
+    this.props.profileInputNickname(event.target.value);
   }
 
   /**
@@ -38,7 +46,7 @@ class Profil extends React.Component {
   */
   render() {
     const {
-      nickname, email, user, done, changeNickname,
+      nickname, email, user, done, changeNickname, valueNickname,
     } = this.props;
     return (
       <div id="profile">
@@ -46,10 +54,12 @@ class Profil extends React.Component {
         <h1>Departement of U.S Army</h1>
         <div>
           <h2 className="profile-title">recruit : </h2>
-          <p className={classNames('profile-recruit', { displayNone: !done })}>{nickname} <button className="profile-edit" onClick={changeNickname}><i className="fas fa-edit" /></button></p>
+          <p className={classNames('profile-recruit', { displayNone: !done })}>{nickname} <button className="profile-edit" onClick={changeNickname}>edit</button></p>
           <div className={classNames('profile-recruit-form', { displayNone: done })}>
-            <input placeholder={nickname} />
-            <button className="profile-edit" onClick={this.validNickname}><i className="fas fa-check" /></button>
+            <form onSubmit={this.editNickname}>
+              <input placeholder={nickname} onChange={this.changeNickname} value={valueNickname} />
+              <button className="profile-edit">confirm</button>
+            </form>
           </div>
         </div>
         <div>

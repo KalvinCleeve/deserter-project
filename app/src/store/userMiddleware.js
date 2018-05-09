@@ -2,13 +2,14 @@
  * Npm import
  */
 import axios from 'axios';
-import { connectUser, signUser, connectUserError, signUserError } from 'src/store/user';
+import { connectUser, signUser, connectUserError, signUserError, updateNickname } from 'src/store/user';
 
 /*
  * Local import
  */
 const TEST_CONNECT_USER = 'TEST_CONNECT_USER';
 const TEST_SIGN_USER = 'TEST_SIGN_USER';
+const TEST_EDIT_NICKNAME = 'TEST_EDIT_NICKNAME';
 
 /*
  * Code
@@ -110,6 +111,31 @@ export default store => next => (action) => {
     }
       break;
 
+    case TEST_EDIT_NICKNAME: {
+      const user = {
+        newNickname: store.getState().user.profileInputNickname,
+        nickname: store.getState().user.nickname,
+      };
+
+      const regex = /["/$‘<>{}]/g;
+      // eslint-disable-next-line
+      if (user.nickname.search(regex) !== -1) {
+        // TODO: afficher un message d'erreur
+        console.log('Pas de caractères spéciaux "/$‘<>{}');
+        break;
+      }
+
+      axios
+        .post('http://localhost:3000/edit/nickname', { user })
+        .then((result) => {
+          store.dispatch(updateNickname(result));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+      break;
+
     default:
   }
 
@@ -129,4 +155,8 @@ export const testSignUser = (password, confirmPassword) => ({
   type: TEST_SIGN_USER,
   password,
   confirmPassword,
+});
+
+export const testEditNickname = () => ({
+  type: TEST_EDIT_NICKNAME,
 });

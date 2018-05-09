@@ -4,7 +4,8 @@
 const initialState = {
   errorConnect: [],
   errorSignUp: [],
-  changeNickname: true,
+  switchInputNickname: true,
+  profileInputNickname: '',
   inputSignFirstname: '',
   inputSignLastname: '',
   inputSignNickname: '',
@@ -19,7 +20,9 @@ const initialState = {
 /**
  * Types
  */
+const UPDATE_NICKNAME = 'UPDATE_NICKNAME';
 const CHANGE_NICKNAME = 'CHANGE_NICKNAME';
+const PROFILE_INPUT_NICKNAME = 'PROFILE_INPUT_NICKNAME';
 const CONNECT_USER = 'CONNECT_USER';
 const CONNECT_USER_ERROR = 'CONNECT_USER_ERROR';
 const CHANGE_INPUT_CONNECT_EMAIL = 'CHANGE_INPUT_CONNECT_EMAIL';
@@ -43,7 +46,21 @@ const reducer = (state = initialState, action = {}) => {
 
       return {
         ...state,
-        changeNickname: true,
+        switchInputNickname: false,
+      };
+
+    case UPDATE_NICKNAME:
+      return {
+        ...state,
+        nickname: state.profileInputNickname,
+        switchInputNickname: true,
+      };
+
+    case PROFILE_INPUT_NICKNAME:
+
+      return {
+        ...state,
+        profileInputNickname: action.input,
       };
 
     case CONNECT_USER:
@@ -136,6 +153,10 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
+export const updateNickname = () => ({
+  type: UPDATE_NICKNAME,
+});
+
 export const changeNickname = () => ({
   type: CHANGE_NICKNAME,
 });
@@ -166,11 +187,15 @@ export const resetFormError = () => ({
   type: RESET_FORM_ERROR,
 });
 
+export const profileInputNickname = input => ({
+  type: PROFILE_INPUT_NICKNAME,
+  input,
+});
+
 export const changeInputConnectEmail = input => ({
   type: CHANGE_INPUT_CONNECT_EMAIL,
   input,
 });
-
 
 export const changeInputSignFirstname = input => ({
   type: CHANGE_INPUT_SIGN_FIRSTNAME,
