@@ -125,6 +125,37 @@ app.post('/verif/nickname', (req, res) => {
   });
 });
 
+app.post('/edit/password', (req, res) => {
+  const { email, password } = req.body.newUser;
+  const hash = bcrypt.hashSync(password, saltRounds);
+  mongoose.connect('mongodb://localhost:27017/deserter', (err) => {
+    if (err) throw err;
+  });
+  const queryUser = UsersModel.find({ email });
+  queryUser.update({ password: hash }, (err) => {
+    if (err) throw err;
+    res.send(true);
+  });
+});
+
+app.post('/verif/password', (req, res) => {
+  const { email, password } = req.body.user;
+  mongoose.connect('mongodb://localhost:27017/deserter', (err) => {
+    if (err) throw err;
+  });
+  const queryUser = UsersModel.find({ email });
+  queryUser.exec((err, result) => {
+    if (err) throw err;
+    if (bcrypt.compareSync(password, result[0].password)) {
+      res.send(true);
+    }
+    else {
+      res.send(false);
+    }
+  });
+});
+
+
 app.post('/signUser', (req, res) => {
   const {
     firstname,
@@ -155,6 +186,7 @@ app.post('/signUser', (req, res) => {
     });
   });
 });
+
 // app.post('/connect', (req, res) => {
 //   const { email, password } = req.body.user;
 //   // Requetes et connexion à la BDD

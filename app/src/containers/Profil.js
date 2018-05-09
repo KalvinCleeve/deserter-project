@@ -8,8 +8,8 @@ import { bindActionCreators } from 'redux';
  * Local import
  */
 import Profil from 'src/components/Profil';
-import { changeNickname, profileInputNickname } from 'src/store/user';
-import { testEditNickname } from 'src/store/userMiddleware';
+import { changeNickname, profileInputNickname, resetProfile, changePassword } from 'src/store/user';
+import { testEditNickname, testEditPassword } from 'src/store/userMiddleware';
 
 // Action Creators
 
@@ -20,8 +20,10 @@ const mapStateToProps = state => ({
   nickname: state.user.nickname,
   email: state.user.email,
   user: state.user.user,
-  done: state.user.switchInputNickname,
+  doneNickname: state.user.switchInputNickname,
+  donePassword: state.user.switchInputPassword,
   valueNickname: state.user.profileInputNickname,
+  errorProfile: state.user.errorProfile,
 });
 
 
@@ -31,6 +33,9 @@ const mapDispatchToProps = dispatch => (
       changeNickname,
       profileInputNickname,
       testEditNickname,
+      resetProfile,
+      testEditPassword,
+      changePassword,
     },
     dispatch,
   )

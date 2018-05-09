@@ -4,99 +4,59 @@
 const initialState = {
   errorConnect: [],
   errorSignUp: [],
-  switchInputNickname: true,
-  profileInputNickname: '',
+  errorProfile: [],
+
   inputSignFirstname: '',
   inputSignLastname: '',
   inputSignNickname: '',
   inputSignEmail: '',
+  inputConnectEmail: '',
+  profileInputNickname: '',
+
+  switchInputNickname: true,
+  switchInputPassword: true,
+
   user: false,
   nickname: '',
   email: '',
 
-  inputConnectEmail: '',
+
 };
 
 /**
  * Types
  */
-const UPDATE_NICKNAME = 'UPDATE_NICKNAME';
-const CHANGE_NICKNAME = 'CHANGE_NICKNAME';
-const PROFILE_INPUT_NICKNAME = 'PROFILE_INPUT_NICKNAME';
-const CONNECT_USER = 'CONNECT_USER';
 const CONNECT_USER_ERROR = 'CONNECT_USER_ERROR';
-const CHANGE_INPUT_CONNECT_EMAIL = 'CHANGE_INPUT_CONNECT_EMAIL';
-const DISCONNECT = 'DISCONNECT';
-
-const SIGN_USER = 'SIGN_USER';
 const SIGN_USER_ERROR = 'SIGN_USER_ERROR';
+const PROFILE_NICKNAME_ERROR = 'PROFILE_NICKNAME_ERROR';
+
 const CHANGE_INPUT_SIGN_FIRSTNAME = 'CHANGE_INPUT_SIGN_FIRSTNAME';
 const CHANGE_INPUT_SIGN_LASTNAME = 'CHANGE_INPUT_SIGN_LASTNAME';
 const CHANGE_INPUT_SIGN_NICKNAME = 'CHANGE_INPUT_SIGN_NICKNAME';
 const CHANGE_INPUT_SIGN_EMAIL = 'CHANGE_INPUT_SIGN_EMAIL';
+const CHANGE_INPUT_CONNECT_EMAIL = 'CHANGE_INPUT_CONNECT_EMAIL';
+const PROFILE_INPUT_NICKNAME = 'PROFILE_INPUT_NICKNAME';
 
+const CHANGE_NICKNAME = 'CHANGE_NICKNAME';
+const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
+const UPDATE_NICKNAME = 'UPDATE_NICKNAME';
+const CONNECT_USER = 'CONNECT_USER';
 const RESET_FORM_ERROR = 'RESET_FORM_ERROR';
+const RESET_PROFILE = 'RESET_PROFILE';
+const DISCONNECT = 'DISCONNECT';
+const SIGN_USER = 'SIGN_USER';
+
 
 /**
  * Reducer
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_NICKNAME:
-
-      return {
-        ...state,
-        switchInputNickname: false,
-      };
-
-    case UPDATE_NICKNAME:
-      return {
-        ...state,
-        nickname: state.profileInputNickname,
-        switchInputNickname: true,
-      };
-
-    case PROFILE_INPUT_NICKNAME:
-
-      return {
-        ...state,
-        profileInputNickname: action.input,
-      };
-
-    case CONNECT_USER:
-      console.log(action.user);
-      // window.location.href = 'http://localhost:3333/';
-
-      return {
-        ...state,
-        nickname: action.user.nickname,
-        email: action.user.email,
-        user: true,
-      };
-
     case CONNECT_USER_ERROR:
       console.log(action.error);
       return {
         ...state,
         errorConnect: action.error,
-      };
-
-    case DISCONNECT:
-      return {
-        ...state,
-        user: false,
-        nickname: '',
-        email: '',
-      };
-
-    case SIGN_USER:
-      console.log('Vous êtes connecté');
-      console.log(action.user);
-      return {
-        ...state,
-        nickname: action.user.nickname,
-        email: action.user.email,
-        user: true,
       };
 
     case SIGN_USER_ERROR:
@@ -106,17 +66,11 @@ const reducer = (state = initialState, action = {}) => {
         errorSignUp: action.error,
       };
 
-    case RESET_FORM_ERROR:
+    case PROFILE_NICKNAME_ERROR:
+      console.log(action.error);
       return {
         ...state,
-        errorConnect: [],
-        errorSignUp: [],
-      };
-
-    case CHANGE_INPUT_CONNECT_EMAIL:
-      return {
-        ...state,
-        inputConnectEmail: action.input,
+        errorProfile: action.error,
       };
 
     case CHANGE_INPUT_SIGN_FIRSTNAME:
@@ -138,10 +92,83 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case CHANGE_INPUT_SIGN_EMAIL:
-
       return {
         ...state,
         inputSignEmail: action.input,
+      };
+
+    case CHANGE_INPUT_CONNECT_EMAIL:
+      return {
+        ...state,
+        inputConnectEmail: action.input,
+      };
+
+    case PROFILE_INPUT_NICKNAME:
+
+      return {
+        ...state,
+        profileInputNickname: action.input,
+      };
+
+    case UPDATE_NICKNAME:
+      return {
+        ...state,
+        nickname: state.profileInputNickname,
+        switchInputNickname: true,
+      };
+
+    case CHANGE_NICKNAME:
+      return {
+        ...state,
+        switchInputNickname: false,
+      };
+
+    case CHANGE_PASSWORD:
+      return {
+        ...state,
+        switchInputPassword: false,
+      };
+
+    case CONNECT_USER:
+      console.log(action.user);
+      return {
+        ...state,
+        nickname: action.user.nickname,
+        email: action.user.email,
+        user: true,
+      };
+
+
+    case RESET_FORM_ERROR:
+      return {
+        ...state,
+        errorConnect: [],
+        errorSignUp: [],
+      };
+
+    case RESET_PROFILE:
+      return {
+        ...state,
+        switchInputNickname: true,
+        errorProfile: [],
+      };
+
+    case DISCONNECT:
+      return {
+        ...state,
+        user: false,
+        nickname: '',
+        email: '',
+      };
+
+    case SIGN_USER:
+      console.log('Vous êtes connecté');
+      console.log(action.user);
+      return {
+        ...state,
+        nickname: action.user.nickname,
+        email: action.user.email,
+        user: true,
       };
 
 
@@ -160,6 +187,10 @@ export const updateNickname = () => ({
 export const changeNickname = () => ({
   type: CHANGE_NICKNAME,
 });
+export const changePassword = () => ({
+  type: CHANGE_PASSWORD,
+});
+
 
 export const connectUser = user => ({
   type: CONNECT_USER,
@@ -168,6 +199,11 @@ export const connectUser = user => ({
 
 export const connectUserError = error => ({
   type: CONNECT_USER_ERROR,
+  error,
+});
+
+export const profileNicknameError = error => ({
+  type: PROFILE_NICKNAME_ERROR,
   error,
 });
 
@@ -185,6 +221,10 @@ export const signUserError = error => ({
 
 export const resetFormError = () => ({
   type: RESET_FORM_ERROR,
+});
+
+export const resetProfile = () => ({
+  type: RESET_PROFILE,
 });
 
 export const profileInputNickname = input => ({

@@ -22,16 +22,25 @@ class Profil extends React.Component {
     nickname: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     user: PropTypes.bool.isRequired,
-    done: PropTypes.bool.isRequired,
+    doneNickname: PropTypes.bool.isRequired,
+    donePassword: PropTypes.bool.isRequired,
     changeNickname: PropTypes.func.isRequired,
     valueNickname: PropTypes.string.isRequired,
     profileInputNickname: PropTypes.func.isRequired,
     testEditNickname: PropTypes.func.isRequired,
+    errorProfile: PropTypes.array.isRequired,
+    resetProfile: PropTypes.func.isRequired,
+    testEditPassword: PropTypes.func.isRequired,
+    changePassword: PropTypes.func.isRequired,
   };
 
   /**
   * Actions
   */
+    componentWillUnmount = () => {
+      this.props.resetProfile();
+    };
+
   editNickname = (event) => {
     event.preventDefault();
     this.props.testEditNickname();
@@ -41,23 +50,43 @@ class Profil extends React.Component {
     this.props.profileInputNickname(event.target.value);
   }
 
+  changePassword = (event) => {
+    event.preventDefault();
+    this.props.testEditPassword(event.target.oldPassword.value, event.target.newPassword.value, event.target.confirmNewPassword.value);
+  }
+
   /**
   * Render
   */
   render() {
     const {
-      nickname, email, user, done, changeNickname, valueNickname,
+      nickname, email, user, doneNickname, donePassword, changeNickname, valueNickname, errorProfile, changePassword,
     } = this.props;
     return (
       <div id="profile">
         { !user ? <Redirect to="/" /> : '' }
+        {errorProfile.map(error => (
+          <div key={error} className="form-error" > {error} </div>
+                ))}
         <h1>Departement of U.S Army</h1>
         <div>
           <h2 className="profile-title">recruit : </h2>
-          <p className={classNames('profile-recruit', { displayNone: !done })}>{nickname} <button className="profile-edit" onClick={changeNickname}>edit</button></p>
-          <div className={classNames('profile-recruit-form', { displayNone: done })}>
+          <p className={classNames('profile-recruit', { displayNone: !doneNickname })}>{nickname} <button className="profile-edit" onClick={changeNickname}>edit</button></p>
+          <div className={classNames('profile-recruit-form', { displayNone: doneNickname })}>
             <form onSubmit={this.editNickname}>
-              <input placeholder={nickname} onChange={this.changeNickname} value={valueNickname} />
+              <input placeholder={nickname} onChange={this.changeNickname} value={valueNickname} required />
+              <button className="profile-edit">confirm</button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <h2 className="profile-title">Mot de passe : </h2>
+          <p className={classNames('profile-recruit', { displayNone: !donePassword })}> <button className="profile-edit" onClick={changePassword}>edit</button></p>
+          <div className={classNames('profile-recruit-form', { displayNone: donePassword })}>
+            <form onSubmit={this.changePassword}>
+              <input type="password" name="oldPassword" required placeholder="Mot de passe" />
+              <input type="password" name="newPassword" required placeholder="Nouveau mot de passe" />
+              <input type="password" name="confirmNewPassword" required placeholder="Confirmation nouveau mot de passe" />
               <button className="profile-edit">confirm</button>
             </form>
           </div>
