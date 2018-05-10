@@ -52,7 +52,11 @@ class Profil extends React.Component {
 
   changePassword = (event) => {
     event.preventDefault();
-    this.props.testEditPassword(event.target.oldPassword.value, event.target.newPassword.value, event.target.confirmNewPassword.value);
+    this.props.testEditPassword(
+      event.target.oldPassword.value,
+      event.target.newPassword.value,
+      event.target.confirmNewPassword.value,
+    );
   }
 
   /**
@@ -60,7 +64,15 @@ class Profil extends React.Component {
   */
   render() {
     const {
-      nickname, email, user, doneNickname, donePassword, changeNickname, valueNickname, errorProfile, changePassword,
+      nickname,
+      email,
+      user,
+      doneNickname,
+      donePassword,
+      changeNickname,
+      valueNickname,
+      errorProfile,
+      changePassword,
     } = this.props;
     return (
       <div id="profile">
@@ -74,14 +86,19 @@ class Profil extends React.Component {
           <p className={classNames('profile-recruit', { displayNone: !doneNickname })}>{nickname} <button className="profile-edit" onClick={changeNickname}>edit</button></p>
           <div className={classNames('profile-recruit-form', { displayNone: doneNickname })}>
             <form onSubmit={this.editNickname}>
-              <input placeholder={nickname} onChange={this.changeNickname} value={valueNickname} required />
+              <input
+                placeholder={nickname}
+                onChange={this.changeNickname}
+                value={valueNickname}
+                required
+              />
               <button className="profile-edit">confirm</button>
             </form>
           </div>
         </div>
         <div>
-          <h2 className="profile-title">Mot de passe : </h2>
-          <p className={classNames('profile-recruit', { displayNone: !donePassword })}> <button className="profile-edit" onClick={changePassword}>edit</button></p>
+          <h2 className="profile-title">Password : </h2>
+          <p className={classNames('profile-recruit', { displayNone: !donePassword })}>**********<button className="profile-edit" onClick={changePassword}>edit</button></p>
           <div className={classNames('profile-recruit-form', { displayNone: donePassword })}>
             <form onSubmit={this.changePassword}>
               <input type="password" name="oldPassword" required placeholder="Mot de passe" />
