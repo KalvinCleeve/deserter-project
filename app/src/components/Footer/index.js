@@ -21,11 +21,11 @@ const Footer = () => (
         <span className="navbar-item">DESERTER&copy; - 2018 - All Rights Reserved</span>
       </div>
       <div id="link-footer" className="navbar-end">
-        <Link to="/cgu" className="navbar-item">
-          <span>CGU</span>
-        </Link>
         <Link to="/contact" className="navbar-item">
-          <span>Contacter</span>
+          <span>Contact us</span>
+        </Link>
+        <Link to="/cgu" className="navbar-item">
+          <span>GTU</span>
         </Link>
       </div>
     </div>
