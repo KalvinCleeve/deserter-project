@@ -101,9 +101,9 @@ class Profil extends React.Component {
           <p className={classNames('profile-recruit', { displayNone: !donePassword })}>**********<button className="profile-edit" onClick={changePassword}>edit</button></p>
           <div className={classNames('profile-recruit-form', { displayNone: donePassword })}>
             <form onSubmit={this.changePassword}>
-              <input type="password" name="oldPassword" required placeholder="Mot de passe" />
-              <input type="password" name="newPassword" required placeholder="Nouveau mot de passe" />
-              <input type="password" name="confirmNewPassword" required placeholder="Confirmation nouveau mot de passe" />
+              <input type="password" name="oldPassword" required placeholder="Password" />
+              <input type="password" name="newPassword" required placeholder="New password" />
+              <input type="password" name="confirmNewPassword" required placeholder="Confirm new password" />
               <button className="profile-edit">confirm</button>
             </form>
           </div>

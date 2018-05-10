@@ -24,7 +24,7 @@ export default store => next => (action) => {
         password: action.password,
       };
       if (!user.email || !user.password) {
-        store.dispatch(connectUserError(['Champ manquant']));
+        store.dispatch(connectUserError(['Field missing']));
         // store.dispatch(connectUserError(['Mot de passe manquant']));
         break;
       }
@@ -33,7 +33,7 @@ export default store => next => (action) => {
         .post('http://localhost:3000/connect', { user })
         .then((result) => {
           if (!result.data) {
-            store.dispatch(connectUserError(['Email ou mot de passe incorrect']));
+            store.dispatch(connectUserError(['Incorrect email or password']));
           }
           else {
             store.dispatch(connectUser(result.data));
@@ -69,18 +69,18 @@ export default store => next => (action) => {
       const regex = /["/$‘<>{}]/g;
       // eslint-disable-next-line
       if (user.firstname.search(regex) !== -1 || user.lastname.search(regex) !== -1 || user.nickname.search(regex) !== -1 || user.email.search(regex) !== -1 || user.password.search(regex) !== -1) {
-        store.dispatch(signUserError(['Pas de caractères spéciaux "/$‘<>{}']));
+        store.dispatch(signUserError(['No special characters "/$‘<>{}']));
         break;
       }
 
 
       // eslint-disable-next-line
       if (!user.firstname || !user.lastname || !user.nickname || !user.email || !user.password || !user.confirmPassword) {
-        store.dispatch(signUserError(['Champ manquant']));
+        store.dispatch(signUserError(['Field missing']));
         break;
       }
       if (action.password !== action.confirmPassword) {
-        store.dispatch(signUserError(['Confirmation mot de passe invalide']));
+        store.dispatch(signUserError(['Invalid password']));
         break;
       }
 
@@ -91,13 +91,13 @@ export default store => next => (action) => {
         .post('http://localhost:3000/verif/email', { email: user.email })
         .then((email) => {
           if (!email.data) {
-            error.push('Email déjà utilisé');
+            error.push('Email already used');
           }
           axios
             .post('http://localhost:3000/verif/nickname', { nickname: user.nickname })
             .then((nickname) => {
               if (!nickname.data) {
-                error.push('Nickname déjà utilisé');
+                error.push('Nickname already used');
               }
               if (error[0]) {
                 store.dispatch(signUserError(error));
@@ -123,11 +123,11 @@ export default store => next => (action) => {
       // eslint-disable-next-line
       if (user.newNickname.search(regex) !== -1) {
         // TODO: afficher un message d'erreur
-        store.dispatch(profileNicknameError(['Le Nickname ne doit pas avoir de caractères spéciaux']));
+        store.dispatch(profileNicknameError(['No special characters in the Nickname']));
         break;
       }
       if (store.getState().user.profileInputNickname === '') {
-        store.dispatch(profileNicknameError(['Champ vide']));
+        store.dispatch(profileNicknameError(['Empty field']));
         break;
       }
 
@@ -141,7 +141,7 @@ export default store => next => (action) => {
         .post('http://localhost:3000/verif/nickname', { nickname: user.newNickname })
         .then((nickname) => {
           if (!nickname.data) {
-            store.dispatch(profileNicknameError(['nickname déjà utilisé']));
+            store.dispatch(profileNicknameError(['nickname already used']));
           }
           else {
             axios
@@ -162,20 +162,20 @@ export default store => next => (action) => {
       // eslint-disable-next-line
         if (action.newPassword.search(regex) !== -1) {
       // TODO: afficher un message d'erreur
-        store.dispatch(profileNicknameError(['Le mot de passe ne doit pas avoir de caractères spéciaux']));
+        store.dispatch(profileNicknameError(['No special characters in the password']));
         break;
       }
       if (action.oldPassword === '' || action.newPassword === '' || action.confirmNewPassword === '') {
-        store.dispatch(profileNicknameError(['Champs vides']));
+        store.dispatch(profileNicknameError(['Empty field']));
         break;
       }
 
       if (action.newPassword === action.oldPassword) {
-        store.dispatch(profileNicknameError(['Le nouveau mot de passe doit être différent']));
+        store.dispatch(profileNicknameError(['New password must be different']));
         break;
       }
       if (action.newPassword !== action.confirmNewPassword) {
-        store.dispatch(profileNicknameError(['Confirmation mot de passe invalide']));
+        store.dispatch(profileNicknameError(['Invalid password']));
         break;
       }
 
@@ -193,7 +193,7 @@ export default store => next => (action) => {
         .post('http://localhost:3000/verif/password', { user })
         .then((resultPassword) => {
           if (!resultPassword.data) {
-            store.dispatch(profileNicknameError(['Mot de passe incorrect']));
+            store.dispatch(profileNicknameError(['Incorrect password']));
           }
           else {
             axios
