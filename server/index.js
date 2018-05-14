@@ -162,6 +162,9 @@ app.post('/verif/password', (req, res) => {
 
 
 app.post('/signUser', (req, res) => {
+  mongoose.connect('mongodb://localhost:27017/deserter', (err) => {
+    if (err) throw err;
+  });
   const {
     firstname,
     lastname,
@@ -184,11 +187,11 @@ app.post('/signUser', (req, res) => {
   newUser.save((err) => {
     if (err) throw err;
     mongoose.connection.close();
-    res.send({
-      lastname,
-      nickname,
-      email,
-    });
+  });
+  res.send({
+    lastname,
+    nickname,
+    email,
   });
 });
 
