@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 /**
  * Local import
  */
-import Profil from 'src/components/Profil';
+import Profile from 'src/components/Profile';
 import { changeNickname, profileInputNickname, resetProfile, changePassword } from 'src/store/user';
 import { testEditNickname, testEditPassword } from 'src/store/userMiddleware';
 
@@ -42,7 +42,7 @@ const mapDispatchToProps = dispatch => (
 );
 
 // Container
-export default connect(mapStateToProps, mapDispatchToProps)(Profil);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 
 
 /**

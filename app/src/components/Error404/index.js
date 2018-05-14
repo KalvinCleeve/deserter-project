@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 /**
  * Local import
  */
@@ -13,10 +14,11 @@ import React from 'react';
 
 const Error404 = () => (
   <div id="error">
-    <h1 >ERROR 404</h1>
-    <span>
-      DEMI TOUR COLONNEL - CECI EST UN CUL-DE-SAC!
-    </span>
+    <h1 id="mainTitle" className="title">ERROR 404</h1>
+    <div id="boxError">
+      <h2 id="subtitle" className="title">Oops ! No panic here</h2>
+      <span id="subtitle"><Link to="/"> go back to Home</Link></span>
+    </div>
   </div>
 );
 

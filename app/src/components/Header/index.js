@@ -37,7 +37,7 @@ const Header = ({ user, disconnect }) => (
           </Link>
         : '' }
         { user ?
-          <Link className="navbar-item" to="/profil">
+          <Link className="navbar-item" to="/profile">
             <span className="icon is-large">
               <i className="fas fa-user" aria-hidden="true" />
             </span>

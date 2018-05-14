@@ -1,6 +1,5 @@
 /* Npm import */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 /* Local import */
 import Header from 'src/containers/Header';
@@ -9,12 +8,13 @@ import Home from 'src/components/Home';
 import Error404 from 'src/components/Error404';
 import Connect from 'src/containers/Connect';
 import Contact from 'src/components/Contact';
-import Profil from 'src/containers/Profil';
+import GTU from 'src/components/GTU';
+import Profile from 'src/containers/Profile';
 import Interface from 'src/components/Interface';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 /* Code */
-const App = ({ user }) => (
+const App = () => (
   <Router>
     <div id="app">
       <Header />
@@ -22,8 +22,8 @@ const App = ({ user }) => (
         <Route path="/" exact component={Home} />
         <Route path="/game" component={Interface} />
         <Route path="/connect" component={Connect} />
-        <Route path="/profil" component={Profil} />
-        {/* <Route path="/cgu" component={cgu} /> */}
+        <Route path="/profile" component={Profile} />
+        <Route path="/gtu" component={GTU} />
         <Route path="/contact" component={Contact} />
         <Route component={Error404} />
       </Switch>
@@ -31,9 +31,7 @@ const App = ({ user }) => (
     </div>
   </Router>
 );
-App.propTypes = {
-  user: PropTypes.bool.isRequired,
-};
+
 
 /* Export default */
 export default App;

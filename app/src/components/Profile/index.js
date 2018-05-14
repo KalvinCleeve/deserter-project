@@ -14,7 +14,7 @@ import classNames from 'classnames';
 /**
  * Code
  */
-class Profil extends React.Component {
+class Profile extends React.Component {
   /**
    * PropTypes
    */
@@ -86,12 +86,14 @@ class Profil extends React.Component {
           <p className={classNames('profile-recruit', { displayNone: !doneNickname })}>{nickname} <button className="profile-edit" onClick={changeNickname}>edit</button></p>
           <div className={classNames('profile-recruit-form', { displayNone: doneNickname })}>
             <form onSubmit={this.editNickname}>
-              <input
-                placeholder={nickname}
-                onChange={this.changeNickname}
-                value={valueNickname}
-                required
-              />
+              <div className="tile is-vertical" id="controlPassword">
+                <input
+                  placeholder={nickname}
+                  onChange={this.changeNickname}
+                  value={valueNickname}
+                  required
+                />
+              </div>
               <button className="profile-edit">confirm</button>
             </form>
           </div>
@@ -101,9 +103,11 @@ class Profil extends React.Component {
           <p className={classNames('profile-recruit', { displayNone: !donePassword })}>**********<button className="profile-edit" onClick={changePassword}>edit</button></p>
           <div className={classNames('profile-recruit-form', { displayNone: donePassword })}>
             <form onSubmit={this.changePassword}>
-              <input type="password" name="oldPassword" required placeholder="Password" />
-              <input type="password" name="newPassword" required placeholder="New password" />
-              <input type="password" name="confirmNewPassword" required placeholder="Confirm new password" />
+              <div className="tile is-vertical" id="controlPassword">
+                <input type="password" name="oldPassword" required placeholder="Password" />
+                <input type="password" name="newPassword" required placeholder="New password" />
+                <input type="password" name="confirmNewPassword" required placeholder="Confirm new password" />
+              </div>
               <button className="profile-edit">confirm</button>
             </form>
           </div>
@@ -128,4 +132,4 @@ class Profil extends React.Component {
 /**
  * Export
  */
-export default Profil;
+export default Profile;

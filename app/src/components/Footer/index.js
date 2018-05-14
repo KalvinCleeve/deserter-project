@@ -24,7 +24,7 @@ const Footer = () => (
         <Link to="/contact" className="navbar-item">
           <span>Contact us</span>
         </Link>
-        <Link to="/cgu" className="navbar-item">
+        <Link to="/gtu" className="navbar-item">
           <span>GTU</span>
         </Link>
       </div>
