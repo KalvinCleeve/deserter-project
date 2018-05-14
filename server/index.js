@@ -60,6 +60,7 @@ app.post('/connect', (req, res) => {
   queryConnect.exec((err, result) => {
     if (err) throw err;
 
+    mongoose.connection.close();
     if (result[0]) {
       if (bcrypt.compareSync(password, result[0].password)) {
         res.send({
@@ -75,7 +76,6 @@ app.post('/connect', (req, res) => {
     else {
       res.send(false);
     }
-    mongoose.connection.close();
   });
 });
 
@@ -88,6 +88,7 @@ app.post('/verif/email', (req, res) => {
   const queryUser = UsersModel.find({ email });
   queryUser.exec((err, result) => {
     if (err) throw err;
+    mongoose.connection.close();
     if (result[0]) {
       res.send(false);
     }
@@ -104,6 +105,7 @@ app.post('/edit/nickname', (req, res) => {
   });
   UsersModel.update({ nickname }, { nickname: newNickname }, (err) => {
     if (err) throw err;
+    mongoose.connection.close();
     res.send(true);
   });
 });
@@ -116,6 +118,7 @@ app.post('/verif/nickname', (req, res) => {
   const queryUser = UsersModel.find({ nickname });
   queryUser.exec((err, result) => {
     if (err) throw err;
+    mongoose.connection.close();
     if (result[0]) {
       res.send(false);
     }
@@ -134,6 +137,7 @@ app.post('/edit/password', (req, res) => {
   const queryUser = UsersModel.find({ email });
   queryUser.update({ password: hash }, (err) => {
     if (err) throw err;
+    mongoose.connection.close();
     res.send(true);
   });
 });
@@ -146,6 +150,7 @@ app.post('/verif/password', (req, res) => {
   const queryUser = UsersModel.find({ email });
   queryUser.exec((err, result) => {
     if (err) throw err;
+    mongoose.connection.close();
     if (bcrypt.compareSync(password, result[0].password)) {
       res.send(true);
     }

@@ -115,6 +115,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         nickname: state.profileInputNickname,
         switchInputNickname: true,
+        profileInputNickname: '',
       };
 
     case CHANGE_NICKNAME:
@@ -136,6 +137,7 @@ const reducer = (state = initialState, action = {}) => {
         nickname: action.user.nickname,
         email: action.user.email,
         user: true,
+        inputConnectEmail: '',
       };
 
 
@@ -170,6 +172,10 @@ const reducer = (state = initialState, action = {}) => {
         nickname: action.user.nickname,
         email: action.user.email,
         user: true,
+        inputSignFirstname: '',
+        inputSignLastname: '',
+        inputSignNickname: '',
+        inputSignEmail: '',
       };
 
 

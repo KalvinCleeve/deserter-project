@@ -37,14 +37,6 @@ export default store => next => (action) => {
           }
           else {
             store.dispatch(connectUser(result.data));
-          //   axios
-          //     .get('http://localhost:3000/', { user })
-          //     .then((cookie) => {
-          //       console.log(cookie);
-          //     })
-          //     .catch((error) => {
-          //       console.log(error);
-          //     });
           }
         })
         .catch((error) => {
@@ -61,7 +53,7 @@ export default store => next => (action) => {
         nickname: store.getState().user.inputSignNickname,
         email: store.getState().user.inputSignEmail,
         password: action.password,
-        confirmPassword: action.confirmPassword,
+        confirmPassword: action.confirmNewPassword,
       };
       /*
        * Verification requetes NOSQL
@@ -79,7 +71,7 @@ export default store => next => (action) => {
         store.dispatch(signUserError(['Champ manquant']));
         break;
       }
-      if (action.password !== action.confirmPassword) {
+      if (user.password !== user.confirmPassword) {
         store.dispatch(signUserError(['Confirmation mot de passe invalide']));
         break;
       }
@@ -186,7 +178,7 @@ export default store => next => (action) => {
 
       const newUser = {
         email: store.getState().user.email,
-        password: action.newPassword,
+        password: action.confirmNewPassword,
       };
 
       axios
