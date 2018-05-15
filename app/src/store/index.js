@@ -7,13 +7,9 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
  * Local import
  */
 // Reducer
-import movement from 'src/store/movement';
-import quiz from 'src/store/quiz';
-import action from 'src/store/action';
 import user from 'src/store/user';
 
 // Middleware
-import testMovement from './testMovement';
 import userMiddleware from './userMiddleware';
 
 /*
@@ -26,12 +22,9 @@ if (window.devToolsExtension) {
 }
 
 // Middleware vers Enhancers
-const exampleEnhancer = applyMiddleware(testMovement, userMiddleware);
+const exampleEnhancer = applyMiddleware(userMiddleware);
 const enhancers = compose(exampleEnhancer, ...devTools);
 const rootReducer = combineReducers({
-  movement,
-  quiz,
-  action,
   user,
 });
 

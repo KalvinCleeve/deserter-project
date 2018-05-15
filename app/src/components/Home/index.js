@@ -31,9 +31,9 @@ const Home = ({ user }) => (
     </div>
   </div>
 );
-// Home.propTypes = {
-//   user: propTypes.bool.isRequired,
-// };
+Home.propTypes = {
+  user: PropTypes.bool.isRequired,
+};
 
 /**
  * Export

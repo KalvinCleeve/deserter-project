@@ -16,7 +16,6 @@ const TEST_EDIT_PASSWORD = 'TEST_EDIT_PASSWORD';
  * Code
  */
 export default store => next => (action) => {
-  // On écoute les actions qui nous intéressent
   switch (action.type) {
     case TEST_CONNECT_USER: {
       const user = {
@@ -25,7 +24,6 @@ export default store => next => (action) => {
       };
       if (!user.email || !user.password) {
         store.dispatch(connectUserError(['Field missing']));
-        // store.dispatch(connectUserError(['Mot de passe manquant']));
         break;
       }
 
@@ -193,7 +191,6 @@ export default store => next => (action) => {
               .post('http://localhost:3000/edit/password', { newUser })
               .then((result) => {
                 store.dispatch(resetProfile());
-                console.log('mot de passe modifié');
               })
               .catch((error) => {
                 console.log(error);
@@ -208,7 +205,6 @@ export default store => next => (action) => {
     default:
   }
 
-  // On passe à son voisin
   next(action);
 };
 

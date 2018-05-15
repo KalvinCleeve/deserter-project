@@ -26,16 +26,6 @@ app.use(session({
   maxAge: 24 * 60 * 60 * 1000,
 }));
 
-// app.get("/",function (req, res, next) {
-//  var n = req.session.views || 0;
-//  req.session.views = ++n;
-//  console.log(session);
-//  res.end(n + " vues");
-// });
-/*
-* connect BDD
-*/
-
 /*
 * Formulaire de connexion
 */
@@ -195,23 +185,5 @@ app.post('/signUser', (req, res) => {
   });
 });
 
-// app.post('/connect', (req, res) => {
-//   const { email, password } = req.body.user;
-//   // Requetes et connexion à la BDD
-//   MongoClient.connect(url, (err, db) => {
-//     if (err) throw err;
-//
-//     // Requetes à la BDD pour vérifier l'email et le password
-//     const dbo = db.db('deserter');
-//     return dbo.collection('Users').findOne({ email }).then((result) => {
-//       if (password === result.password) {
-//         return result;
-//       }
-//       return 'password incorrect';
-//     });
-//   });
-//   // res.writeHead(301, { Location: 'http://localhost:3333' });
-//   res.end();
-// });
 
 app.listen(3000);

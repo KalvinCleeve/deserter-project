@@ -53,21 +53,18 @@ const SIGN_USER = 'SIGN_USER';
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CONNECT_USER_ERROR:
-      console.log(action.error);
       return {
         ...state,
         errorConnect: action.error,
       };
 
     case SIGN_USER_ERROR:
-      console.log(action.error);
       return {
         ...state,
         errorSignUp: action.error,
       };
 
     case PROFILE_NICKNAME_ERROR:
-      console.log(action.error);
       return {
         ...state,
         errorProfile: action.error,
@@ -131,7 +128,6 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case CONNECT_USER:
-      console.log(action.user);
       return {
         ...state,
         nickname: action.user.nickname,
@@ -165,8 +161,6 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case SIGN_USER:
-      console.log('Vous êtes connecté');
-      console.log(action.user);
       return {
         ...state,
         nickname: action.user.nickname,
