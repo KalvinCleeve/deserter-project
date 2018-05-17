@@ -1,4 +1,12 @@
 /*
+ * Heroku
+ */
+// 
+// const statik = require('statik');
+//
+// statik(process.env.PORT || 1337);
+
+/*
 * Require
 */
 const bcrypt = require('bcrypt');
