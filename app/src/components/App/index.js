@@ -4,7 +4,7 @@ import React from 'react';
 /* Local import */
 import Header from 'src/containers/Header';
 import Footer from 'src/components/Footer';
-import Home from 'src/containers/Home';
+import Home from 'src/components/Home';
 import Error404 from 'src/components/Error404';
 import Connect from 'src/containers/Connect';
 import Contact from 'src/components/Contact';

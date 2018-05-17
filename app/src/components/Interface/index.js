@@ -6,7 +6,7 @@ import React from 'react';
 /**
  * Local import
  */
-import Game from 'src/components/Game';
+import Game from 'src/containers/Game';
 import Score from 'src/components/Score';
 import Rules from 'src/components/Rules';
 

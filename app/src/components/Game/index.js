@@ -2,7 +2,7 @@
  * Npm import
  */
 import React from 'react';
-
+import { Redirect } from 'react-router-dom';
 /**
  * Local import
  */
@@ -10,10 +10,11 @@ import React from 'react';
  * Code
  */
 
-const Game = () => (
+const Game = ({ user }) => (
   <div id="boardGame" className="column is-half">
+    { !user ? <Redirect to="/connect" /> : ''}
 
-    <iframe width="1080" height='760' src="http://v6p9d9t4.ssl.hwcdn.net/html/171523/pac-man-like/index.html" frameBorder="0" allowFullScreen target="_parent" />
+    <iframe width="1080" height='760' src="http://217.70.191.18/" frameBorder="0" allowFullScreen target="_parent" />
   </div>
 );
 

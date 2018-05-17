@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import Home from 'src/components/Home';
+import Game from 'src/components/Game';
 
 // Action Creators
 
@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {};
 
 // Container
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Game);
 
 
 /**

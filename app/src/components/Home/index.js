@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 /**
  * Local import
@@ -12,7 +11,7 @@ import PropTypes from 'prop-types';
 /**
  * Code
  */
-const Home = ({ user }) => (
+const Home = () => (
   <div id="home">
     <div id="intro">
       <h1 id="mainTitle" className="animated bounceInDown is-large">Deserter</h1>
@@ -22,18 +21,12 @@ const Home = ({ user }) => (
         </p>
       </div>
       <button id="play-now" className="button is-dark is-large">
-        { user ?
-          <Link to="/game">Play Now !</Link>
-          :
-          <Link to="/connect">Play Now !</Link>
-        }
+        <Link to="/game">Play Now !</Link>
       </button>
     </div>
   </div>
 );
-Home.propTypes = {
-  user: PropTypes.bool.isRequired,
-};
+
 
 /**
  * Export
