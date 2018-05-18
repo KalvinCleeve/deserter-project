@@ -28,7 +28,7 @@ export default store => next => (action) => {
       }
 
       axios
-        .post('http://localhost:3000/connect', { user })
+        .post('http://217.70.191.16:3000/connect', { user })
         .then((result) => {
           if (!result.data) {
             store.dispatch(connectUserError(['Incorrect email or password']));
@@ -79,13 +79,13 @@ export default store => next => (action) => {
       const error = [];
 
       axios
-        .post('http://localhost:3000/verif/email', { email: user.email })
+        .post('http://217.70.191.16:3000/verif/email', { email: user.email })
         .then((email) => {
           if (!email.data) {
             error.push('Email already used');
           }
           axios
-            .post('http://localhost:3000/verif/nickname', { nickname: user.nickname })
+            .post('http://217.70.191.16:3000/verif/nickname', { nickname: user.nickname })
             .then((nickname) => {
               if (!nickname.data) {
                 error.push('Nickname already used');
@@ -95,7 +95,7 @@ export default store => next => (action) => {
               }
               else {
                 axios
-                  .post('http://localhost:3000/signUser', { user })
+                  .post('http://217.70.191.16:3000/signUser', { user })
                   .then((signUp) => {
                     store.dispatch(signUser(signUp.data));
                   });
@@ -129,14 +129,14 @@ export default store => next => (action) => {
       }
 
       axios
-        .post('http://localhost:3000/verif/nickname', { nickname: user.newNickname })
+        .post('http://217.70.191.16:3000/verif/nickname', { nickname: user.newNickname })
         .then((nickname) => {
           if (!nickname.data) {
             store.dispatch(profileNicknameError(['nickname already used']));
           }
           else {
             axios
-              .post('http://localhost:3000/edit/nickname', { user })
+              .post('http://217.70.191.16:3000/edit/nickname', { user })
               .then((result) => {
                 store.dispatch(updateNickname(result));
               })
@@ -181,14 +181,14 @@ export default store => next => (action) => {
       };
 
       axios
-        .post('http://localhost:3000/verif/password', { user })
+        .post('http://217.70.191.16:3000/verif/password', { user })
         .then((resultPassword) => {
           if (!resultPassword.data) {
             store.dispatch(profileNicknameError(['Incorrect password']));
           }
           else {
             axios
-              .post('http://localhost:3000/edit/password', { newUser })
+              .post('http://217.70.191.16:3000/edit/password', { newUser })
               .then((result) => {
                 store.dispatch(resetProfile());
               })

@@ -42,11 +42,10 @@
     "stylus-brunch": "^2.10.0"
   },
   "dependencies": {
-    "statik": ">= 1.1.0",
     "animate.css": "^3.6.1",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
-    "bcrypt": "^2.0.1",
+    "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.18.2",
     "bulma": "^0.7.1",
     "classnames": "^2.2.5",

@@ -1,7 +1,7 @@
 /*
  * Heroku
  */
-// 
+//
 // const statik = require('statik');
 //
 // statik(process.env.PORT || 1337);
@@ -9,7 +9,7 @@
 /*
 * Require
 */
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3333');
+  res.header('Access-Control-Allow-Origin', 'http://217.70.191.16');
   res.header('Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();

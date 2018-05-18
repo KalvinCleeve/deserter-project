@@ -1,10 +1,10 @@
 exports.config = {
   files: {
     stylesheets: {
-      joinTo: 'css/app.css'
+      joinTo: '/app.css'
     },
     javascripts: {
-      joinTo: 'js/app.js'
+      joinTo: '/app.js'
     }
   },
   plugins: {
