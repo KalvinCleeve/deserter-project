@@ -1,6 +1,5 @@
 # Deserter
 
-
 ## Pitch
 
 C'est la guerre, les nations Börek, Goza et Taiyaki s'entre-tuent. Tous les hommes sont appelés,
