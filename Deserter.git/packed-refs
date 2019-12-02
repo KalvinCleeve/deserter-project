@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled sorted 
+3c4070b69ab3b09c5ed8d02798bca7c2dc9f3d27 refs/heads/Bug_node
+a54cd84d7109ac17647f7e5da05e8901c6482958 refs/heads/back-end
+b237e923606d8cfc1b4b8e665571766354ac9eb3 refs/heads/deploy_heroku
+dc957d717650bc5b838b5176cfa5a29144d2a861 refs/heads/front-end
+9aa77750f558babfaec023b7360779989edebb21 refs/heads/master
